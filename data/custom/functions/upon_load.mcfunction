@@ -5,6 +5,7 @@ scoreboard objectives add Timer dummy
 scoreboard objectives add Rounds dummy
 scoreboard objectives add Lives dummy
 scoreboard objectives add armorcolor dummy
+scoreboard objectives add shootbow minecraft.used:minecraft.bow
 
 #> Teams
 #Black team
@@ -27,7 +28,7 @@ team add Lobby
 team modify Lobby color gold
 team modify Lobby friendlyFire false
 #Spectators
-team add Specatator
+team add Spectator
 team modify Spectator friendlyFire false
 team modify Spectator color blue
 scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
