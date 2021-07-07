@@ -16,7 +16,7 @@ execute store result bossbar gridtimer value run scoreboard players get $timer T
 execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run scoreboard players remove $timer Timer 1
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1
 
-execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 105.. run scoreboard players remove $maxtime Timer 5
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add @a[gamemode=!spectator] Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run function grid:random
 
