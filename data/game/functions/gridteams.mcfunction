@@ -34,3 +34,5 @@ execute as @a[team=Border] unless entity @s[scores={armorcolor=3}] run scoreboar
 
 stopsound @a player item.armor.equip_generic
 stopsound @a player item.armor.equip_leather
+stopsound @a master item.armor.equip_generic
+stopsound @a master item.armor.equip_leather
