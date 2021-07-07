@@ -12,3 +12,5 @@ title @a subtitle {"text":"Keep your enemies beyond the borders","color":"gold"}
 bossbar add gridtimer " "
 bossbar set gridtimer max 200
 bossbar set gridtimer color red
+scoreboard players set @a Lives 3
+scoreboard players set @a Rounds 0
