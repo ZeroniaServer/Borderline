@@ -25,7 +25,7 @@ team modify White seeFriendlyInvisibles false
 #In-border team
 team add Border
 team modify Border color green
-team modify Border friendlyFire true
+team modify Border friendlyFire false
 team modify Border seeFriendlyInvisibles false
 #Lobby team
 team add Lobby
