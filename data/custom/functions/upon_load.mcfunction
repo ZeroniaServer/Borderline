@@ -1,3 +1,4 @@
+
 #> Scoreboards
 scoreboard objectives add CmdData dummy
 scoreboard objectives add GameID dummy
@@ -6,6 +7,7 @@ scoreboard objectives add Rounds dummy
 scoreboard objectives add Lives dummy
 scoreboard objectives add armorcolor dummy
 scoreboard objectives add shootbow minecraft.used:minecraft.bow
+scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
 
 #> Teams
 #Black team
@@ -31,4 +33,6 @@ team modify Lobby friendlyFire false
 team add Spectator
 team modify Spectator friendlyFire false
 team modify Spectator color blue
-scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
+
+#> Gamerules
+gamerule mobGriefing false
