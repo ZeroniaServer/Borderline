@@ -18,9 +18,11 @@ execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run
 
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add @a[gamemode=!spectator] Rounds 1
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Border friendlyFire true
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run function grid:random
 
 execute if score $state CmdData matches 0 if score $timer Timer matches 0 run bossbar set gridtimer color red
+execute if score $state CmdData matches 0 if score $timer Timer matches 0 run team modify Border friendlyFire false
 execute if score $state CmdData matches 0 if score $timer Timer matches 0 run function grid:vanish
 
 execute if score $state CmdData matches 0 if score $timer Timer matches 50 run function grid:transparent

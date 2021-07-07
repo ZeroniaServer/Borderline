@@ -15,17 +15,17 @@ scoreboard objectives add playerUUID dummy
 #Black team
 team add Black
 team modify Black color black
-team modify Black friendlyFire false
+team modify Black friendlyFire true
 team modify Black seeFriendlyInvisibles false
 #White team
 team add White
 team modify White color white
-team modify White friendlyFire false
+team modify White friendlyFire true
 team modify White seeFriendlyInvisibles false
 #In-border team
 team add Border
 team modify Border color green
-team modify Border friendlyFire false
+team modify Border friendlyFire true
 team modify Border seeFriendlyInvisibles false
 #Lobby team
 team add Lobby
