@@ -53,6 +53,8 @@ function game:nodrop
 execute as @a[team=] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run clear @s
+execute as @a[scores={leaveGame=1..}] run gamemode adventure @s
+execute as @a[scores={leaveGame=1..}] run tp @s 8 4 8
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
 scoreboard players reset @a leaveGame
