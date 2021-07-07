@@ -1,3 +1,4 @@
+
 #> Scoreboards
 scoreboard objectives add CmdData dummy
 scoreboard objectives add GameID dummy
@@ -27,7 +28,8 @@ team add Lobby
 team modify Lobby color gold
 team modify Lobby friendlyFire false
 #Spectators
-team add Specatator
+team add Spectator
 team modify Spectator friendlyFire false
 team modify Spectator color blue
+
 scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
