@@ -14,3 +14,8 @@ bossbar set gridtimer max 200
 bossbar set gridtimer color red
 scoreboard players set @a Lives 3
 scoreboard players set @a Rounds 0
+
+item replace entity @a[team=!Spectator,team=!Lobby] armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:1} 1
+
+#> Change gamestate
+scoreboard players set $gamestate CmdData 2
