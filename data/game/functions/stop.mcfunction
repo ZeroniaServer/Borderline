@@ -7,6 +7,8 @@ worldborder set 50
 scoreboard players reset $timer Timer
 scoreboard players reset $maxtime Timer
 scoreboard players reset $state CmdData
+clear @a
+kill @e[type=item]
 
 #> Remove gridtimer bossbar
 bossbar remove gridtimer
