@@ -50,3 +50,4 @@ execute unless entity @a[scores={Lives=1..}] if score $state CmdData matches 0..
 effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 function game:nodrop
+execute as @a[team=] run team join Lobby
