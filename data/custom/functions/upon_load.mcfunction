@@ -15,7 +15,7 @@ scoreboard objectives add leaveGame minecraft.custom:minecraft.leave_game
 #> Teams
 #Black team
 team add Black
-team modify Black color black
+team modify Black color white
 team modify Black friendlyFire true
 team modify Black seeFriendlyInvisibles false
 #White team
@@ -25,7 +25,7 @@ team modify White friendlyFire true
 team modify White seeFriendlyInvisibles false
 #In-border team
 team add Border
-team modify Border color green
+team modify Border color white
 team modify Border friendlyFire true
 team modify Border seeFriendlyInvisibles false
 #Lobby team
