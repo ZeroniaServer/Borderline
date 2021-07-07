@@ -12,7 +12,7 @@ kill @e[type=item]
 kill @e[tag=tnt,type=armor_stand]
 scoreboard players reset @e[type=marker,tag=exploding] blast
 tag @e[type=marker,tag=exploding] remove exploding
-
+team join Lobby @a
 clear @a
 execute as @a run tp @s @s
 tp @a 8 4 8
