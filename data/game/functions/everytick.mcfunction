@@ -27,10 +27,13 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 30 run f
 execute if score $state CmdData matches 0 if score $timer Timer matches 20 run function grid:solid
 execute if score $state CmdData matches 0 if score $timer Timer matches 10 run function grid:transparent
 
+execute if score $state CmdData matches 0.. run function powerup:main
+
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
 execute as @a[tag=dead] run gamemode spectator @s
 execute as @a[tag=dead] run tp @s 8 20 8
+execute as @a[tag=dead] run clear @s
 execute as @a[tag=dead] run scoreboard players remove @s Lives 1
 execute as @a[tag=dead] run title @s title {"text":"You died!","color":"dark_aqua"}
 execute as @a[tag=dead,scores={Lives=1..}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" lives remaining","color":"gold"}]
@@ -42,3 +45,4 @@ tag @a[tag=dead] remove dead
 
 #> Miscellaneous
 effect give @a saturation 1000000 255 true
+effect give @a resistance 1000000 255 true

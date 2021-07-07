@@ -7,6 +7,8 @@ worldborder set 50
 scoreboard players reset $timer Timer
 scoreboard players reset $maxtime Timer
 scoreboard players reset $state CmdData
+clear @a
+kill @e[type=item]
 
 clear @a
 execute as @a run tp @s @s
