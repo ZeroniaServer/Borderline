@@ -5,3 +5,4 @@ tag @e[type=marker,tag=old,limit=1] remove old
 function grid:reset
 function powerup:spawn
 execute as @e[type=marker,tag=selected,limit=1] at @s run worldborder center ~ ~
+item replace entity @e[tag=tnt,type=armor_stand] armor.head with tnt

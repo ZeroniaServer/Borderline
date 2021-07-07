@@ -9,6 +9,9 @@ scoreboard players reset $maxtime Timer
 scoreboard players reset $state CmdData
 clear @a
 kill @e[type=item]
+kill @e[tag=tnt,type=armor_stand]
+scoreboard players reset @e[type=marker,tag=exploding] blast
+tag @e[type=marker,tag=exploding] remove exploding
 
 clear @a
 execute as @a run tp @s @s
