@@ -1,6 +1,7 @@
 
 #> Functions that run every tick
 execute if score $gamestate CmdData matches 2 run function game:gridteams
+execute if score $state CmdData matches 0.. run function powerup:main
 execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
 #> Gridtimer bossbar
@@ -27,8 +28,6 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 40 run f
 execute if score $state CmdData matches 0 if score $timer Timer matches 30 run function grid:transparent
 execute if score $state CmdData matches 0 if score $timer Timer matches 20 run function grid:solid
 execute if score $state CmdData matches 0 if score $timer Timer matches 10 run function grid:transparent
-
-execute if score $state CmdData matches 0.. run function powerup:main
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
