@@ -10,6 +10,7 @@ scoreboard objectives add shootbow minecraft.used:minecraft.bow
 scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
 scoreboard objectives add blast dummy
 scoreboard objectives add playerUUID dummy
+scoreboard objectives add leaveGame minecraft.custom:minecraft.leave_game
 
 #> Teams
 #Black team

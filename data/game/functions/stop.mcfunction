@@ -22,4 +22,4 @@ gamemode adventure @a
 bossbar remove gridtimer
 
 #> Change gamestate
-scoreboard players set $gamestate CmdData 0
+scoreboard players remove $gamestate CmdData 1

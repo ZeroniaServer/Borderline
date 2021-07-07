@@ -46,10 +46,14 @@ execute as @a[tag=dead,scores={Lives=2}] run item replace entity @s armor.feet w
 execute as @a[tag=dead,scores={Lives=1}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"red","italic":false}]',color:16711680},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
 tag @a[tag=dead] remove dead
 
-execute unless entity @a[scores={Lives=1..}] if score $state CmdData matches 0.. run function game:stop
-
 #> Miscellaneous
 effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 function game:nodrop
 execute as @a[team=] run team join Lobby
+execute as @a[scores={leaveGame=1..}] run team join Lobby
+execute as @a[scores={leaveGame=1..}] run clear @s
+execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
+execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
+scoreboard players reset @a leaveGame
+execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 0..2 run function game:stop
