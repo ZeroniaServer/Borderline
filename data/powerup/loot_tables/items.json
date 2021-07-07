@@ -23,7 +23,7 @@
                                 "text": "Ender Pearl",
                                 "color": "dark_purple",
                                 "bold": true,
-                                "italic": true
+                                "italic": false
                             }
                         }
                     ]
@@ -45,7 +45,32 @@
                                 "text": "Slap Fish",
                                 "color": "dark_aqua",
                                 "bold": true,
-                                "italic": true
+                                "italic": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:tnt_minecart",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36}"
+                        },
+                        {
+                            "function": "minecraft:set_enchantments",
+                            "enchantments": {
+                                "minecraft:efficiency": 1
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Exploding Tile",
+                                "color": "red",
+                                "bold": true,
+                                "italic": false
                             }
                         }
                     ]
