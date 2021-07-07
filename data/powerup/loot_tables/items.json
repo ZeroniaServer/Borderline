@@ -9,13 +9,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36}"
-                        },
-                        {
-                            "function": "minecraft:set_enchantments",
-                            "enchantments": {
-                                "minecraft:efficiency": 1
-                            }
+                            "tag": "{HideFlags:36,Enchantments:[{}]}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -56,13 +50,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36}"
-                        },
-                        {
-                            "function": "minecraft:set_enchantments",
-                            "enchantments": {
-                                "minecraft:efficiency": 1
-                            }
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",

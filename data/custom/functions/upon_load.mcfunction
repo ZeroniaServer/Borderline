@@ -8,6 +8,8 @@ scoreboard objectives add Lives dummy
 scoreboard objectives add armorcolor dummy
 scoreboard objectives add shootbow minecraft.used:minecraft.bow
 scoreboard objectives add DealtDamage minecraft.custom:minecraft.damage_dealt
+scoreboard objectives add blast dummy
+scoreboard objectives add playerUUID dummy
 
 #> Teams
 #Black team
@@ -36,3 +38,4 @@ team modify Spectator color blue
 
 #> Gamerules
 gamerule mobGriefing false
+gamerule doMobSpawning false
