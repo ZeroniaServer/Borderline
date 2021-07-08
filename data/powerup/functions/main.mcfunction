@@ -57,3 +57,8 @@ execute as @e[type=item,nbt={Item:{id:"minecraft:popped_chorus_fruit"}}] if data
 execute as @e[type=item,nbt={Item:{id:"minecraft:popped_chorus_fruit"}}] if data entity @s Thrower at @s run kill @s
 execute as @a[tag=SmokeBombed] at @s run function powerup:smokebomb/armortime
 scoreboard players reset @a[tag=!SmokeBombed,scores={SmokeTime=1..}] SmokeTime
+
+#> Ender pearl
+execute as @e[type=ender_pearl] at @s run function powerup:pearl
+execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run playsound entity.enderman.teleport master @a ~ ~ ~ 1 1
+execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run kill @s
