@@ -17,7 +17,7 @@ scoreboard players set @a Lives 3
 scoreboard players set @a Rounds 0
 
 #> Gear
-item replace entity @a[team=!Spectator] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']},Enchantments:[{id:"mending",lvl:1},{id:"punch",lvl:1}],HideFlags:1}
+item replace entity @a[team=!Spectator] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']},Enchantments:[{id:"punch",lvl:2}]}
 give @a[team=!Spectator] arrow{display:{Name:'[{"text":"Arrow","italic":false,"color":"gold","bold":true}]'}} 1
 item replace entity @a[team=!Spectator] armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
 
