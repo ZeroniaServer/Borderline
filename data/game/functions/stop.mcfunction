@@ -1,3 +1,5 @@
+bossbar remove countdown
+
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
@@ -22,17 +24,22 @@ scoreboard players reset $state CmdData
 clear @a
 kill @e[type=item]
 
+tag @a remove JoinPlay
+
 scoreboard objectives remove GameID
 scoreboard objectives add GameID dummy
 
 team join Lobby @a
 clear @a
 execute as @a run tp @s @s
-tp @a 8 4 8
+tp @a 8 5 8 -90 0
 gamemode adventure @a
 
 #> Remove gridtimer bossbar
 bossbar remove gridtimer
 
 #> Change gamestate
-scoreboard players remove $gamestate CmdData 1
+scoreboard players set $gamestate CmdData 0
+
+#> set up lobby
+function lobby:build

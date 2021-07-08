@@ -1,12 +1,21 @@
+bossbar remove countdown
+
+kill @e[tag=Joinpad]
+setblock 10 5 8 air
+
 execute if score $state CmdData matches 0.. run function game:stop
 scoreboard players set $maxtime Timer 200
 tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
 tag @e[type=marker,tag=center] add old
 function grid:random
 gamemode adventure @a
-team leave @a[team=Lobby]
+team leave @a[team=Lobby,tag=JoinPlay]
+team join Spectator @a[tag=!JoinPlay]
+gamemode spectator @a[tag=!JoinPlay]
+tag @a remove JoinPlay
 clear @a
-tp @a 8 4 8
+execute as @a run tp @s @s
+tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
 
 title @a title {"text":"Go!","color":"dark_aqua"}
@@ -15,13 +24,14 @@ title @a subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}
 execute as @e[tag=GameID] store result score $GameID GameID run data get entity @s UUID[0]
-execute as @a store result score @s GameID run scoreboard players get $GameID GameID
+execute as @a[team=!Spectator] store result score @s GameID run scoreboard players get $GameID GameID
 
 #> Add gridtimer bossbar
 bossbar add gridtimer " "
 bossbar set gridtimer max 200
 bossbar set gridtimer color red
-scoreboard players set @a Lives 3
+scoreboard players set @a[team=!Spectator] Lives 3
+scoreboard players reset @a[team=Spectator] Lives
 scoreboard players set @a Rounds 0
 scoreboard players set $TotalRounds Rounds 0
 

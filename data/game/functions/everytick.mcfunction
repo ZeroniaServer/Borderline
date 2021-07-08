@@ -68,15 +68,17 @@ execute as @a[team=] run team join Lobby
 #TODO maybe change this to Spectator when the game is running
 execute as @a[scores={leaveGame=1..}] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run clear @s
+tag @a[scores={leaveGame=1..}] remove JoinPlay
 execute as @a[scores={leaveGame=1..}] run gamemode adventure @s
-execute as @a[scores={leaveGame=1..}] run tp @s 8 4 8
+execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
 scoreboard players reset @a leaveGame
+execute unless score $gamestate CmdData matches 2 run function lobby:main
 
 #> End conditions - TODO add titles?
 #No more players with lives
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 0..2 run function game:stop
+execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
 
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
@@ -84,6 +86,7 @@ execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..
 
 #> Kick people with the wrong GameID out of the game.
 execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run clear @s
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tag @s remove JoinPlay
 execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
 execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run gamemode spectator @s
 execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
