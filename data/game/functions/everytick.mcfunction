@@ -81,3 +81,10 @@ execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
 execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop
+
+#> Kick people with the wrong GameID out of the game.
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run clear @s
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run gamemode spectator @s
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run team join Spectator @s
