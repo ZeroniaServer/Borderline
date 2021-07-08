@@ -8,7 +8,7 @@ setblock 10 5 8 air
 
 execute if score $state CmdData matches 0.. run function game:stop
 scoreboard players set $maxtime Timer 200
-scoreboard players set $maxptime Timer 240
+scoreboard players set $maxptime Timer 320
 tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
 tag @e[type=marker,tag=center] add old
 function grid:random
