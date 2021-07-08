@@ -42,6 +42,8 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
+effect clear @a[tag=dead]
+tag @a[tag=dead] remove SmokeBombed
 execute as @a[tag=dead] run gamemode spectator @s
 execute as @a[tag=dead] run tp @s 8 20 8
 execute as @a[tag=dead] run clear @s #custom:powerups

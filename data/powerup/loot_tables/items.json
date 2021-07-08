@@ -119,6 +119,44 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:rabbit_foot",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Jump Boost",
+                                "color": "aqua",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:popped_chorus_fruit",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Smoke Bomb",
+                                "color": "dark_purple",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
                 }
             ]
         }

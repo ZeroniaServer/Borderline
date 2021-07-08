@@ -6,6 +6,8 @@
         "minecraft:tnt_minecart",
         "minecraft:sand",
         "minecraft:piston",
-        "minecraft:totem_of_undying"
+        "minecraft:totem_of_undying",
+        "minecraft:rabbit_foot",
+        "minecraft:popped_chorus_fruit"
 	]
 }
