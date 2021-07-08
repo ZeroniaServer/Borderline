@@ -3,6 +3,7 @@ tag @s add JoinPlay
 bossbar remove countdown
 
 kill @e[tag=Joinpad]
+kill @e[tag=Credits]
 setblock 10 5 8 air
 
 execute if score $state CmdData matches 0.. run function game:stop
