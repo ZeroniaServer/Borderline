@@ -8,6 +8,9 @@ tag @e[type=marker,tag=falling] remove falling
 tag @e[type=marker,tag=fallen] remove fallen
 tag @e[type=marker,tag=lifted] remove lifted
 kill @e[tag=tnt,type=armor_stand]
+kill @e[type=arrow]
+kill @e[type=ender_pearl]
+kill @e[type=marker,tag=pearltracker]
 scoreboard players reset @e[type=marker,tag=exploding] blast
 tag @e[type=marker,tag=exploding] remove exploding
 function grid:reset
