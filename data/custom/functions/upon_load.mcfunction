@@ -41,6 +41,7 @@ team modify Spectator color blue
 #> Gamerules
 gamerule mobGriefing false
 gamerule doMobSpawning false
+gamerule doMobLoot false
 gamerule fallDamage false
 
 #> Extra

@@ -157,6 +157,25 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:rotten_flesh",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Unleash the Beast",
+                                "color": "dark_red",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
                 }
             ]
         }
