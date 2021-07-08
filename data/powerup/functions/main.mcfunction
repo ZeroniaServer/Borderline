@@ -1,3 +1,9 @@
+#> Timer
+execute if score $state CmdData matches 0 run scoreboard players add $powertime Timer 1
+execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run function powerup:spawn
+execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players remove $maxptime Timer 7
+execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players reset $powertime Timer
+
 
 #> Slap Fish
 tag @a remove HoldingSlapFish

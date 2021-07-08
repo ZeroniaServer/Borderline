@@ -1,5 +1,8 @@
 bossbar remove countdown
 
+scoreboard players reset $maxptime Timer
+scoreboard players reset $powertime Timer
+
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
