@@ -1,0 +1,1 @@
+give @s tnt_minecart{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"red","text":"Exploding Tile"}'}}

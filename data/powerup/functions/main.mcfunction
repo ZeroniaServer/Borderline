@@ -2,8 +2,7 @@
 #> Slap Fish
 tag @a remove HoldingSlapFish
 tag @a[nbt={SelectedItem:{id:"minecraft:cod"}}] add HoldingSlapFish
-execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run playsound minecraft:entity.guardian.flop master @a ~ ~ ~ 1 1
-execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run clear @s cod 1
+execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run function powerups:slapfish/slap
 scoreboard players reset @a DealtDamage
 
 #> Exploding Tile
@@ -36,9 +35,7 @@ execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run fun
 tag @a remove HoldingJump
 tag @a[nbt={SelectedItem:{id:"minecraft:rabbit_foot"}}] add HoldingJump
 execute as @a[tag=HoldingJump] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
-execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity @s Thrower at @s run effect give @p jump_boost 10 1 true
-execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity @s Thrower at @s run playsound minecraft:block.sand.hit master @a ~ ~ ~ 1 0.6
-execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity @s Thrower at @s run kill @s
+execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity @s Thrower at @s run function powerup:jumpboost/use
 
 #> Smoke Bomb
 tag @a remove HoldingSmoke
@@ -59,7 +56,7 @@ execute as @a[tag=SmokeBombed] at @s run function powerup:smokebomb/armortime
 scoreboard players reset @a[tag=!SmokeBombed,scores={SmokeTime=1..}] SmokeTime
 
 #> Ender Pearl
-execute as @e[type=ender_pearl] at @s run function powerup:pearl
+execute as @e[type=ender_pearl] at @s run function powerup:pearl/track
 execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run playsound entity.enderman.teleport master @a ~ ~ ~ 1 1
 execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run kill @s
 

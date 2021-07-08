@@ -1,0 +1,1 @@
+give @s ender_pearl{Enchantments:[{}],display:{Name:'{"bold":true,"italic":false,"color":"light_purple","text":"Ender Pearl"}'}}

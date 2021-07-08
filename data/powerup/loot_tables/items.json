@@ -9,13 +9,13 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}]}"
+                            "tag": "{Enchantments:[{}]}"
                         },
                         {
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Ender Pearl",
-                                "color": "dark_purple",
+                                "color": "light_purple",
                                 "bold": true,
                                 "italic": false
                             }
@@ -50,7 +50,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -69,13 +69,13 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Falling Tile",
-                                "color": "aqua",
+                                "color": "yellow",
                                 "bold": true,
                                 "italic": false
                             }
@@ -88,12 +88,12 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
                             "name": {
-                                "text": "Lift Tile",
+                                "text": "Lifting Tile",
                                 "color": "dark_green",
                                 "bold": true,
                                 "italic": false
@@ -107,7 +107,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -126,7 +126,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -145,7 +145,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -164,7 +164,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{}],Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",

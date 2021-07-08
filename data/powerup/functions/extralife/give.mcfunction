@@ -1,0 +1,1 @@
+give @s totem_of_undying{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"green","text":"Extra Life"}'}}
