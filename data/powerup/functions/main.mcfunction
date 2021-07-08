@@ -67,8 +67,4 @@ execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pe
 tag @a remove HoldingBeast
 tag @a[nbt={SelectedItem:{id:"minecraft:rotten_flesh"}}] add HoldingBeast
 execute as @a[tag=HoldingBeast] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
-execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run playsound entity.zombified_piglin.hurt master @a ~ ~ ~ 1 0.5
-execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run playsound block.fire.extinguish master @a ~ ~ ~ 1 0.5
-execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run particle poof ~ ~ ~ 1 0 1 0.2 100 force
-execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run summon zoglin ~ ~ ~ {CustomName:'{"text":"The Beast","color":"dark_red","bold":true}',CustomNameVisible:1b}
-execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower run kill @s
+execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:beast/unleash
