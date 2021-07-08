@@ -81,6 +81,25 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:piston",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Lift Tile",
+                                "color": "dark_green",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
                 }
             ]
         }
