@@ -1,14 +1,15 @@
+
 #> Timer
 execute if score $state CmdData matches 0 run scoreboard players add $powertime Timer 1
 execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run function powerup:spawn
 execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players remove $maxptime Timer 7
 execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players reset $powertime Timer
 
-
 #> Slap Fish
 tag @a remove HoldingSlapFish
 tag @a[nbt={SelectedItem:{id:"minecraft:cod"}}] add HoldingSlapFish
-execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run function powerups:slapfish/slap
+execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run playsound minecraft:entity.guardian.flop master @a ~ ~ ~ 1 1
+clear @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] cod 1
 scoreboard players reset @a DealtDamage
 
 #> Exploding Tile
