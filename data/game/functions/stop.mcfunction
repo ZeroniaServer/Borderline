@@ -23,6 +23,9 @@ scoreboard players reset $state CmdData
 clear @a
 kill @e[type=item]
 
+scoreboard objectives remove GameID
+scoreboard objectives add GameID dummy
+
 team join Lobby @a
 clear @a
 execute as @a run tp @s @s

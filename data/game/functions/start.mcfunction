@@ -7,9 +7,15 @@ gamemode adventure @a
 team leave @a[team=Lobby]
 clear @a
 tp @a 8 4 8
+scoreboard players reset @a armorcolor
 
 title @a title {"text":"Go!","color":"dark_aqua"}
 title @a subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
+
+#> Create game ID
+summon marker ~ ~ ~ {Tags:["GameID"]}
+execute as @e[tag=GameID] store result score $GameID GameID run data get entity @s UUID[0]
+execute as @a store result score @s GameID run scoreboard players get $GameID GameID
 
 #> Add gridtimer bossbar
 bossbar add gridtimer " "
