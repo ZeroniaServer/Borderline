@@ -15,6 +15,8 @@ execute if score $state CmdData matches 1 run bossbar set gridtimer color green
 execute store result bossbar gridtimer value run scoreboard players get $timer Timer
 
 #> Flashing concrete stuff
+execute as @e[type=marker,tag=vanished] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 air
+
 execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run scoreboard players remove $timer Timer 1
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1
 
@@ -57,11 +59,12 @@ execute as @a[tag=dead,scores={Lives=2}] run item replace entity @s armor.feet w
 execute as @a[tag=dead,scores={Lives=1}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"red","italic":false}]',color:16711680},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
 tag @a[tag=dead] remove dead
 
-#> Miscellaneous
+#> Lobby players and relogs
 effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 function game:nodrop
 execute as @a[team=] run team join Lobby
+#TODO maybe change this to Spectator when the game is running
 execute as @a[scores={leaveGame=1..}] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run clear @s
 execute as @a[scores={leaveGame=1..}] run gamemode adventure @s
@@ -69,4 +72,11 @@ execute as @a[scores={leaveGame=1..}] run tp @s 8 4 8
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
 scoreboard players reset @a leaveGame
+
+#> End conditions - TODO add titles?
+#No more players with lives
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 0..2 run function game:stop
+
+#Only one tile left
+execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
+execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop
