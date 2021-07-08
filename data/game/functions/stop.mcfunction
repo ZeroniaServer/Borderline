@@ -11,6 +11,7 @@ kill @e[tag=tnt,type=armor_stand]
 kill @e[type=arrow]
 kill @e[type=ender_pearl]
 kill @e[type=marker,tag=pearltracker]
+kill @e[type=zoglin]
 scoreboard players reset @e[type=marker,tag=exploding] blast
 tag @e[type=marker,tag=exploding] remove exploding
 function grid:reset
