@@ -44,6 +44,20 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
+
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+tellraw @a[gamemode=!spectator,tag=wall] {"text":"Don't stand on the wall!","color":"red"}
+tag @a[gamemode=!spectator,tag=wall] add dead
+tag @a[gamemode=!spectator,tag=wall] remove wall
+
 effect clear @a[tag=dead]
 tag @a[tag=dead] remove SmokeBombed
 execute as @a[tag=dead] run gamemode spectator @s
