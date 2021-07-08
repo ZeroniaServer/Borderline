@@ -41,3 +41,6 @@ team modify Spectator color blue
 gamerule mobGriefing false
 gamerule doMobSpawning false
 gamerule fallDamage false
+
+#> Extra
+execute positioned 8 3 8 run tag @e[type=marker,tag=square,limit=1,sort=nearest] add center
