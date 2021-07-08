@@ -1,4 +1,4 @@
-execute as @e[tag=Joinpad] at @s run particle dust 1 1 1 1.5 ~ ~ ~ 0.5 0 0.5 0 2 force
+execute as @e[tag=Joinpad] at @s run particle minecraft:dust_color_transition 1 1 1 1.5 0 0 0 ~ ~ ~ 0.5 0 0.5 0 4 force
 
 execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tag @s remove JoinSpec
 execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will play in the next match!","color":"dark_gray"}]
@@ -24,3 +24,6 @@ execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minpl
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar set countdown players @a
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run schedule function lobby:countdown 1s
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run scoreboard players set $gamestate CmdData 1
+
+execute as @e[tag=YZEROcredit] at @s run particle dust 1 1 1 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
+execute as @e[tag=Evcredit] at @s run particle dust 0 0 0 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
