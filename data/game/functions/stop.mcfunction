@@ -1,6 +1,15 @@
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
+execute as @e[type=marker,tag=lifting] at @s run fill ~-2 ~-1 ~-2 ~2 ~ ~2 air
+execute as @e[type=marker] at @s run tp @s ~ 3 ~
+execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air
+tag @e[type=marker,tag=falling] remove falling
+tag @e[type=marker,tag=fallen] remove fallen
+tag @e[type=marker,tag=lifting] remove lifting
+kill @e[tag=tnt,type=armor_stand]
+scoreboard players reset @e[type=marker,tag=exploding] blast
+tag @e[type=marker,tag=exploding] remove exploding
 function grid:reset
 worldborder center 8 8
 worldborder set 50
@@ -9,12 +18,6 @@ scoreboard players reset $maxtime Timer
 scoreboard players reset $state CmdData
 clear @a
 kill @e[type=item]
-kill @e[tag=tnt,type=armor_stand]
-scoreboard players reset @e[type=marker,tag=exploding] blast
-tag @e[type=marker,tag=exploding] remove exploding
-execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air
-tag @e[type=marker,tag=falling] remove falling
-tag @e[type=marker,tag=fallen] remove fallen
 
 team join Lobby @a
 clear @a
