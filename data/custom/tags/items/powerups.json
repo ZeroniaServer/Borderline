@@ -5,6 +5,7 @@
         "minecraft:ender_pearl",
         "minecraft:tnt_minecart",
         "minecraft:sand",
-        "minecraft:piston"
+        "minecraft:piston",
+        "minecraft:totem_of_undying"
 	]
 }

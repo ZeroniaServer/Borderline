@@ -1,12 +1,12 @@
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
-execute as @e[type=marker,tag=lifting] at @s run fill ~-2 ~-1 ~-2 ~2 ~ ~2 air
+execute as @e[type=marker,tag=lifted] at @s run fill ~-2 ~-1 ~-2 ~2 ~ ~2 air
 execute as @e[type=marker] at @s run tp @s ~ 3 ~
 execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air
 tag @e[type=marker,tag=falling] remove falling
 tag @e[type=marker,tag=fallen] remove fallen
-tag @e[type=marker,tag=lifting] remove lifting
+tag @e[type=marker,tag=lifted] remove lifted
 kill @e[tag=tnt,type=armor_stand]
 scoreboard players reset @e[type=marker,tag=exploding] blast
 tag @e[type=marker,tag=exploding] remove exploding

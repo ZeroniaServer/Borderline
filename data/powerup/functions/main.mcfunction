@@ -29,4 +29,4 @@ execute as @a[tag=HoldingLTile] run title @s actionbar ["",{"text":"Press ","col
 execute as @e[type=item,nbt={Item:{id:"minecraft:piston"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:liftingtile/place
 
 #> Extra Life
-function powerup:extralife/pickup
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run function powerup:extralife/pickup
