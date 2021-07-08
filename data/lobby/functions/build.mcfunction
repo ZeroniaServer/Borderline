@@ -20,4 +20,4 @@ item replace entity @e[tag=YZEROcredit] armor.head with player_head{SkullOwner:Y
 item replace entity @e[tag=Evcredit] armor.head with player_head{SkullOwner:Evtema3}
 
 summon area_effect_cloud 13 4 6 {Duration:2000000000,Tags:["JoinpadPlay","Joinpad"],CustomName:"\"Join\"",CustomNameVisible:1b}
-summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"\"Leave\"",CustomNameVisible:1b}
+summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"\"Leave/Spectate\"",CustomNameVisible:1b}

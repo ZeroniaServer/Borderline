@@ -1,4 +1,4 @@
-execute as @e[tag=Joinpad] at @s run particle minecraft:dust_color_transition 1 1 1 1.5 0 0 0 ~ ~ ~ 0.5 0 0.5 0 4 force
+execute as @e[tag=Joinpad] at @s run particle minecraft:dust_color_transition 0 0 0 1.5 1 1 1 ~ ~ ~ 0.5 0 0.5 0 8 force
 
 execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tag @s remove JoinSpec
 execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will play in the next match!","color":"dark_gray"}]
