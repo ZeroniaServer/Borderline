@@ -12,6 +12,8 @@ scoreboard objectives add blast dummy
 scoreboard objectives add playerUUID dummy
 scoreboard objectives add leaveGame minecraft.custom:minecraft.leave_game
 
+worldborder warning distance 0
+
 #> Teams
 #Black team
 team add Black
