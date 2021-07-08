@@ -42,7 +42,7 @@ execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity 
 
 #> Smoke Bomb
 tag @a remove HoldingSmoke
-tag @a[nbt={SelectedItem:{id:"minecraft:rabbit_foot"}}] add HoldingSmoke
+tag @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit"}}] add HoldingSmoke
 execute as @a[tag=HoldingSmoke] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
 execute as @e[type=item,nbt={Item:{id:"minecraft:popped_chorus_fruit"}}] if data entity @s Thrower at @s run tag @p add SmokeBombed
 execute as @e[type=item,nbt={Item:{id:"minecraft:popped_chorus_fruit"}}] if data entity @s Thrower at @s run item replace entity @p armor.head with air
