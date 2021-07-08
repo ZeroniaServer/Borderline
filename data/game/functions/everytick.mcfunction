@@ -6,11 +6,11 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
 #> Gridtimer bossbar
 bossbar set gridtimer players @a
-execute if score $state CmdData matches 0 run bossbar set gridtimer name {"text":"Run to the red square!","color":"red","bold":true}
+execute if score $state CmdData matches 0 run bossbar set gridtimer name ["",{"text":"[","bold":true,"color":"dark_red"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},{"text":"] ","bold":true,"color":"dark_red"},{"text":"Run to the red square!","bold":true,"color":"red"}]
 execute if score $state CmdData matches 0 run bossbar set gridtimer color red
 execute if score $state CmdData matches 0 store result bossbar gridtimer max run scoreboard players get $maxtime Timer
 execute if score $state CmdData matches 1 run bossbar set gridtimer max 100
-execute if score $state CmdData matches 1 run bossbar set gridtimer name {"text":"Wait until the next round.","color":"green","bold":true}
+execute if score $state CmdData matches 1 run bossbar set gridtimer name ["",{"text":"[","bold":true,"color":"dark_green"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},{"text":"] ","bold":true,"color":"dark_green"},{"text":"Wait until the next round.","bold":true,"color":"green"}]
 execute if score $state CmdData matches 1 run bossbar set gridtimer color green
 execute store result bossbar gridtimer value run scoreboard players get $timer Timer
 
@@ -20,6 +20,7 @@ execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run
 
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add @a[gamemode=!spectator] Rounds 1
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add $TotalRounds Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Border friendlyFire true
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run execute as @a at @s run playsound minecraft:entity.shulker_bullet.hit master @s ~ ~ ~ 2 0.7
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run function grid:random

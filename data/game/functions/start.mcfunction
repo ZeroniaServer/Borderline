@@ -15,6 +15,7 @@ bossbar set gridtimer max 200
 bossbar set gridtimer color red
 scoreboard players set @a Lives 3
 scoreboard players set @a Rounds 0
+scoreboard players set $TotalRounds Rounds 0
 
 #> Gear
 item replace entity @a[team=!Spectator] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']},Enchantments:[{id:"punch",lvl:2}]}
