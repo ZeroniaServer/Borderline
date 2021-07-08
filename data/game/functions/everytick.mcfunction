@@ -6,9 +6,11 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
 #> Gridtimer bossbar
 bossbar set gridtimer players @a
+execute if score $state CmdData matches 0 run bossbar set gridtimer name {"text":"Run to the red square!","color":"red","bold":true}
 execute if score $state CmdData matches 0 run bossbar set gridtimer color red
 execute if score $state CmdData matches 0 store result bossbar gridtimer max run scoreboard players get $maxtime Timer
 execute if score $state CmdData matches 1 run bossbar set gridtimer max 100
+execute if score $state CmdData matches 1 run bossbar set gridtimer name {"text":"Wait until the next round.","color":"green","bold":true}
 execute if score $state CmdData matches 1 run bossbar set gridtimer color green
 execute store result bossbar gridtimer value run scoreboard players get $timer Timer
 

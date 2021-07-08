@@ -1,10 +1,10 @@
 {
 	"values": [
-
         "minecraft:arrow",
 		"minecraft:cod",
         "minecraft:ender_pearl",
-        "minecraft:tnt_minecart"
-
+        "minecraft:tnt_minecart",
+        "minecraft:sand",
+        "minecraft:piston"
 	]
 }
