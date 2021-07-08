@@ -27,3 +27,6 @@ tag @a remove HoldingLTile
 tag @a[nbt={SelectedItem:{id:"minecraft:piston"}}] add HoldingLTile
 execute as @a[tag=HoldingLTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
 execute as @e[type=item,nbt={Item:{id:"minecraft:piston"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:liftingtile/place
+
+#> Extra Life
+function powerup:extralife/pickup

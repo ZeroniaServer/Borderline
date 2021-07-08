@@ -100,6 +100,25 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:totem_of_undying",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{HideFlags:36,Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Extra Life",
+                                "color": "green",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
                 }
             ]
         }

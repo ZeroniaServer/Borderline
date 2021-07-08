@@ -1,0 +1,9 @@
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run playsound minecraft:item.totem.use master @s ~ ~ ~ 1 2
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run particle minecraft:totem_of_undying ~ ~1 ~ 0.3 0.3 0.3 0.6 30 force
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run scoreboard players add @s Lives 1
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run title @s title " "
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run title @s subtitle ["",{"text":"+1 Life! (","color":"green"},{"score":{"name":"@s","objective":"Lives"},"color":"gold"},{"text":")","color":"green"}]
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]},scores={Lives=3..}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]},scores={Lives=2}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"gold","italic":false}]',color:16753152},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]},scores={Lives=1}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"red","italic":false}]',color:16711680},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
+execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run clear @s totem_of_undying 1
