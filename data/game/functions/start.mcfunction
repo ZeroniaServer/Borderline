@@ -1,3 +1,5 @@
+tag @s add JoinPlay
+
 bossbar remove countdown
 
 kill @e[tag=Joinpad]
