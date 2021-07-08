@@ -1,0 +1,1 @@
+give @s popped_chorus_fruit{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"dark_purple","text":"Smoke Bomb"}'}}

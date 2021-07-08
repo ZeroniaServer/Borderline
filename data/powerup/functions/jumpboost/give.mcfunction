@@ -1,0 +1,1 @@
+give @s rabbit_foot{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"aqua","text":"Jump Boost"}'}}
