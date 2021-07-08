@@ -82,6 +82,7 @@ execute as @a[team=] run team join Lobby
 #TODO maybe change this to Spectator when the game is running
 execute as @a[scores={leaveGame=1..}] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run clear @s
+execute as @a[scores={leaveGame=1..}] if score $gamestate matches 2 run scoreboard players reset @s GameID
 tag @a[scores={leaveGame=1..}] remove JoinPlay
 execute as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
