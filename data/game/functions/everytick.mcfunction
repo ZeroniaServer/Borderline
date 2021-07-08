@@ -52,7 +52,8 @@ execute as @a[tag=dead] run clear @s #custom:powerups
 execute as @a[tag=dead] run scoreboard players remove @s Lives 1
 tag @a[tag=dead,scores={Lives=1..}] add ChargeArrow
 execute as @a[tag=dead] run title @s title {"text":"You died!","color":"dark_aqua"}
-execute as @a[tag=dead,scores={Lives=1..}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" lives remaining.","color":"gold"}]
+execute as @a[tag=dead,scores={Lives=2..}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" lives remaining.","color":"gold"}]
+execute as @a[tag=dead,scores={Lives=1}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" life remaining.","color":"gold"}]
 execute as @a[tag=dead,scores={Lives=..0}] run title @s subtitle {"text":"Better luck next time!","color":"red"}
 execute as @a[tag=dead,scores={Lives=3..}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
 execute as @a[tag=dead,scores={Lives=2}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"gold","italic":false}]',color:16753152},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
