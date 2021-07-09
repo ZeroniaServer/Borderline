@@ -1,8 +1,8 @@
+
+#> Remove bossbar
 bossbar remove countdown
 
-scoreboard players reset $maxptime Timer
-scoreboard players reset $powertime Timer
-
+#> Reset grid
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
@@ -12,30 +12,34 @@ execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air
 tag @e[type=marker,tag=falling] remove falling
 tag @e[type=marker,tag=fallen] remove fallen
 tag @e[type=marker,tag=lifted] remove lifted
+scoreboard players reset @e[type=marker,tag=exploding] blast
+tag @e[type=marker,tag=exploding] remove exploding
+scoreboard players reset @e[type=marker,tag=portal] portaluse
+tag @e[type=marker,tag=portal] remove portal
+function grid:reset
+
+#> Kill entities
 kill @e[tag=tnt,type=armor_stand]
 kill @e[type=arrow]
 kill @e[type=ender_pearl]
 kill @e[type=marker,tag=pearltracker]
 kill @e[type=zoglin]
 kill @e[type=falling_block]
-scoreboard players reset @e[type=marker,tag=exploding] blast
-tag @e[type=marker,tag=exploding] remove exploding
-scoreboard players reset @e[type=marker,tag=portal] portaluse
-tag @e[type=marker,tag=portal] remove portal
-function grid:reset
+kill @e[type=item]
+
+#> Reset world border and game states
 worldborder center 8 8
 worldborder set 50
 scoreboard players reset $timer Timer
 scoreboard players reset $maxtime Timer
 scoreboard players reset $state CmdData
-clear @a
-kill @e[type=item]
+scoreboard players reset $maxptime Timer
+scoreboard players reset $powertime Timer
 
+#> Manage players
 tag @a remove JoinPlay
-
 scoreboard objectives remove GameID
 scoreboard objectives add GameID dummy
-
 team join Lobby @a
 clear @a
 execute as @a run tp @s @s

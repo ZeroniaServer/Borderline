@@ -1,17 +1,22 @@
+
+#> Developer convenience
 execute if score $state CmdData matches 0.. run function game:stop
 tag @s add JoinPlay
 
+#> Remove lobby
 bossbar remove countdown
-
 kill @e[tag=Joinpad]
 kill @e[tag=Credits]
 setblock 10 5 8 air
 
+#> Grid/timer setup
 scoreboard players set $maxtime Timer 200
 scoreboard players set $maxptime Timer 320
 tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
 tag @e[type=marker,tag=center] add old
 function grid:random
+
+#> Player setup
 gamemode adventure @a
 team leave @a[team=Lobby,tag=JoinPlay]
 team join Spectator @a[tag=!JoinPlay]
@@ -22,6 +27,7 @@ execute as @a run tp @s @s
 tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
 
+#> Titles
 title @a title {"text":"Go!","color":"dark_aqua"}
 title @a subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
 
@@ -34,6 +40,8 @@ execute as @a[team=!Spectator] store result score @s GameID run scoreboard playe
 bossbar add gridtimer " "
 bossbar set gridtimer max 200
 bossbar set gridtimer color red
+
+#> Lives/Rounds
 scoreboard players set @a[team=!Spectator] Lives 3
 scoreboard players reset @a[team=Spectator] Lives
 scoreboard players set @a Rounds 0
