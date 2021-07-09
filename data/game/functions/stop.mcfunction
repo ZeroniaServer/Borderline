@@ -1,7 +1,4 @@
 
-#> Remove bossbar
-bossbar remove countdown
-
 #> Reset grid
 schedule clear grid:random
 schedule clear grid:vanish
@@ -46,8 +43,9 @@ execute as @a run tp @s @s
 tp @a 8 5 8 -90 0
 gamemode adventure @a
 
-#> Remove gridtimer bossbar
+#> Remove bossbars
 bossbar remove gridtimer
+bossbar remove countdown
 
 #> Change gamestate
 scoreboard players set $gamestate CmdData 0
