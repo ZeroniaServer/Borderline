@@ -82,7 +82,6 @@ effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 function game:nodrop
 execute as @a[team=] run team join Lobby
-#TODO maybe change this to Spectator when the game is running
 execute as @a[scores={leaveGame=1..}] run team join Lobby
 execute as @a[scores={leaveGame=1..}] run clear @s
 execute as @a[scores={leaveGame=1..}] if score $gamestate CmdData matches 2 run scoreboard players reset @s GameID
@@ -99,7 +98,7 @@ tag @a[team=!Black,team=!White,team=!Border] remove LastStanding
 #No more players with lives
 execute if score $gamestate CmdData matches 2 unless entity @a[scores={Lives=2..}] run tag @a add LastStanding
 execute if score $gamestate CmdData matches 2 if entity @a[scores={Lives=2..}] run tag @a remove LastStanding
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@p[tag=LastStanding]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
+execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@p[tag=LastStanding]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
 
