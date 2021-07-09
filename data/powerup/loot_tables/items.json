@@ -46,7 +46,7 @@
                 },
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:tnt_minecart",
+                    "name": "minecraft:tnt",
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
@@ -171,6 +171,25 @@
                             "name": {
                                 "text": "Unleash the Beast",
                                 "color": "dark_red",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:respawn_anchor",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{BlockStateTag:{charges:\"4\"},Enchantments:[{}],Droppable:1b}"
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Portal Tile",
+                                "color": "blue",
                                 "bold": true,
                                 "italic": false
                             }

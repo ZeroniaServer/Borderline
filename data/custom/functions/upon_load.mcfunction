@@ -12,6 +12,7 @@ scoreboard objectives add blast dummy
 scoreboard objectives add playerUUID dummy
 scoreboard objectives add leaveGame minecraft.custom:minecraft.leave_game
 scoreboard objectives add SmokeTime dummy
+scoreboard objectives add portaluse dummy
 
 #> Teams
 #Black team

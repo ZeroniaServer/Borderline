@@ -1,0 +1,1 @@
+give @s respawn_anchor{BlockStateTag:{charges:"4"},Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"blue","text":"Portal Tile"}'}}

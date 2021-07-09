@@ -14,9 +14,9 @@ scoreboard players reset @a DealtDamage
 
 #> Exploding Tile
 tag @a remove HoldingETile
-tag @a[nbt={SelectedItem:{id:"minecraft:tnt_minecart"}}] add HoldingETile
+tag @a[nbt={SelectedItem:{id:"minecraft:tnt"}}] add HoldingETile
 execute as @a[tag=HoldingETile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
-execute as @e[type=item,nbt={Item:{id:"minecraft:tnt_minecart"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:explodingtile/place
+execute as @e[type=item,nbt={Item:{id:"minecraft:tnt"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:explodingtile/place
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @a[dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~ ~1 ~ if entity @e[type=arrow,distance=..1] at @s run function powerup:explodingtile/explode
 
@@ -34,6 +34,15 @@ tag @a remove HoldingLTile
 tag @a[nbt={SelectedItem:{id:"minecraft:piston"}}] add HoldingLTile
 execute as @a[tag=HoldingLTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
 execute as @e[type=item,nbt={Item:{id:"minecraft:piston"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:liftingtile/place
+
+#> Portal Tile
+tag @a remove HoldingPTile
+tag @a[nbt={SelectedItem:{id:"minecraft:respawn_anchor"}}] add HoldingPTile
+execute as @a[tag=HoldingPTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+execute as @e[type=item,nbt={Item:{id:"minecraft:respawn_anchor"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:portaltile/place
+execute as @a[gamemode=!spectator,tag=!teleported] at @s if block ~ ~-1 ~ respawn_anchor if entity @e[type=marker,tag=portal,tag=!fallen,tag=!vanished,distance=5..] run function powerup:portaltile/use
+execute as @a[gamemode=!spectator,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
+execute as @e[type=marker,tag=portalfalling] at @s if entity @e[type=falling_block,distance=..5] run function powerup:portaltile/sand
 
 #> Extra Life
 execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run function powerup:extralife/pickup
