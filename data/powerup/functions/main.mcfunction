@@ -13,50 +13,42 @@ clear @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] cod 1
 scoreboard players reset @a DealtDamage
 
 #> Exploding Tile
-tag @a remove HoldingETile
-tag @a[nbt={SelectedItem:{id:"minecraft:tnt"}}] add HoldingETile
-execute as @a[tag=HoldingETile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:tnt"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:tnt"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:explodingtile/place
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @a[dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
+execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=zoglin,dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~ ~1 ~ if entity @e[type=arrow,distance=..1] at @s run function powerup:explodingtile/explode
 
 #> Falling Tile
-tag @a remove HoldingFTile
-tag @a[nbt={SelectedItem:{id:"minecraft:sand"}}] add HoldingFTile
-execute as @a[tag=HoldingFTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:sand"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b}] run scoreboard players add @s CmdData 1
 execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b},scores={CmdData=10..}] if data entity @s Thrower at @s run function powerup:fallingtile/place
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @a[dx=2,dy=2,dz=2] at @s run function powerup:fallingtile/fall
+execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=zoglin,dx=2,dy=2,dz=2] at @s run function powerup:fallingtile/fall
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~ ~1 ~ if entity @e[type=arrow,distance=..1] at @s run function powerup:fallingtile/fall
 
 #> Lifting Tile
-tag @a remove HoldingLTile
-tag @a[nbt={SelectedItem:{id:"minecraft:piston"}}] add HoldingLTile
-execute as @a[tag=HoldingLTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:piston"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:piston"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:liftingtile/place
 
 #> Portal Tile
-tag @a remove HoldingPTile
-tag @a[nbt={SelectedItem:{id:"minecraft:respawn_anchor"}}] add HoldingPTile
-execute as @a[tag=HoldingPTile] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:respawn_anchor"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:respawn_anchor"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:portaltile/place
 execute as @a[gamemode=!spectator,tag=!teleported] at @s if block ~ ~-1 ~ respawn_anchor if entity @e[type=marker,tag=portal,tag=!fallen,tag=!vanished,distance=5..] run function powerup:portaltile/use
 execute as @a[gamemode=!spectator,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
+execute as @e[type=zoglin,tag=!teleported] at @s if block ~ ~-1 ~ respawn_anchor if entity @e[type=marker,tag=portal,tag=!fallen,tag=!vanished,distance=5..] run function powerup:portaltile/use
+execute as @e[type=zoglin,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
 execute as @e[type=marker,tag=portalfalling] at @s if entity @e[type=falling_block,distance=..5] run function powerup:portaltile/sand
 
 #> Extra Life
 execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run function powerup:extralife/pickup
 
 #> Jump Boost
-tag @a remove HoldingJump
-tag @a[nbt={SelectedItem:{id:"minecraft:rabbit_foot"}}] add HoldingJump
-execute as @a[tag=HoldingJump] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:rabbit_foot"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:rabbit_foot"}}] if data entity @s Thrower at @s run function powerup:jumpboost/use
 
 #> Smoke Bomb
-tag @a remove HoldingSmoke
-tag @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit"}}] add HoldingSmoke
-execute as @a[tag=HoldingSmoke] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:popped_chorus_fruit"}}] if data entity @s Thrower at @s run function powerup:smokebomb/use
 execute as @a[tag=SmokeBombed] at @s run function powerup:smokebomb/armortime
 scoreboard players reset @a[tag=!SmokeBombed,scores={SmokeTime=1..}] SmokeTime
@@ -67,7 +59,10 @@ execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pe
 execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run kill @s
 
 #> Unleash the Beast
-tag @a remove HoldingBeast
-tag @a[nbt={SelectedItem:{id:"minecraft:rotten_flesh"}}] add HoldingBeast
-execute as @a[tag=HoldingBeast] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+tag @a[nbt={SelectedItem:{id:"minecraft:rotten_flesh"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:rotten_flesh"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:beast/unleash
+
+#> Actionbar
+execute as @a[tag=PressDrop] run title @s actionbar ["",{"text":"Press ","color":"red"},{"keybind":"key.drop","bold":true,"color":"blue"},{"text":" to use this powerup!","color":"red"}]
+execute as @a[tag=!PressDrop] run title @s actionbar [""]
+tag @a[tag=PressDrop] remove PressDrop

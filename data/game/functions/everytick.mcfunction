@@ -44,16 +44,15 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
-
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
 tellraw @a[gamemode=!spectator,tag=wall] {"text":"Don't stand on the wall!","color":"red"}
 tag @a[gamemode=!spectator,tag=wall] add dead
 tag @a[gamemode=!spectator,tag=wall] remove wall
@@ -72,9 +71,7 @@ execute as @a[tag=dead,scores={Lives=..0}] run title @s subtitle {"text":"Better
 execute as @a[tag=dead,scores={Lives=..0}] at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.4 2
 execute as @a[tag=dead,scores={Lives=..0}] unless score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" rounds!","color":"red"}]
 execute as @a[tag=dead,scores={Lives=..0}] if score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" round!","color":"red"}]
-execute as @a[tag=dead,scores={Lives=3..}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
-execute as @a[tag=dead,scores={Lives=2}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"gold","italic":false}]',color:16753152},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
-execute as @a[tag=dead,scores={Lives=1}] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"red","italic":false}]',color:16711680},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
+execute as @a[tag=dead] run function game:lifeboots
 tag @a[tag=dead] remove dead
 
 #> Lobby players and relogs

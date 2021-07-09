@@ -21,15 +21,15 @@ gamemode adventure @a
 team leave @a[team=Lobby,tag=JoinPlay]
 team join Spectator @a[tag=!JoinPlay]
 gamemode spectator @a[tag=!JoinPlay]
+title @a title {"text":"Let the game begin!","color":"dark_aqua"}
+execute store result score $players CmdData if entity @a[tag=JoinPlay]
+execute if score $players CmdData matches 2.. run title @a[tag=JoinPlay] subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
+execute if score $players CmdData matches 1 run title @a[tag=JoinPlay] subtitle {"text":"Don't stay beyond the border!","color":"gold"}
 tag @a remove JoinPlay
 clear @a
 execute as @a run tp @s @s
 tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
-
-#> Titles
-title @a title {"text":"Go!","color":"dark_aqua"}
-title @a subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
 
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}
@@ -48,9 +48,9 @@ scoreboard players set @a Rounds 0
 scoreboard players set $TotalRounds Rounds 0
 
 #> Gear
-item replace entity @a[team=!Spectator] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']},Enchantments:[{id:"punch",lvl:2}]}
+item replace entity @a[team=!Spectator] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"}]']},Enchantments:[{id:"punch",lvl:2}],HideFlags:4}
 give @a[team=!Spectator] arrow{display:{Name:'[{"text":"Arrow","italic":false,"color":"gold","bold":true}]'}} 1
-item replace entity @a[team=!Spectator] armor.feet with leather_boots{Unbreakable:1b,display:{Name:'[{"text":"Life Boots","color":"green","italic":false}]',color:65315},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:1} 1
+execute as @a[team=!Spectator] run function game:lifeboots
 
 #> Change gamestate
 scoreboard players set $gamestate CmdData 2
