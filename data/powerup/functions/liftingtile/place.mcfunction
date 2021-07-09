@@ -6,6 +6,7 @@ execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] if entity @s[tag=por
 execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] at @s positioned ~-2.75 ~ ~-2.75 as @a[dx=2.75,dy=4,dz=2.75] at @s run tp @s @s
 execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] at @s positioned ~-2.75 ~ ~-2.75 as @a[dx=2.75,dy=4,dz=2.75] at @s run tp @s ~ ~3 ~
 execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] at @s positioned ~-2 ~ ~-2 as @e[type=item,dx=2,dy=4,dz=2] at @s run tp @s ~ ~3 ~
+execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] at @s positioned ~-2 ~ ~-2 as @e[type=zoglin,dx=2,dy=4,dz=2] at @s run tp @s ~ ~3 ~
 execute as @e[type=marker,tag=lifting,limit=1,sort=nearest] at @s run tp @s ~ ~2 ~
 execute as @e[type=marker,tag=lifting] run tag @s add lifted
 execute as @e[type=marker,tag=lifted] run tag @s remove lifting
