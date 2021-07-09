@@ -1,0 +1,1 @@
+give @s tipped_arrow{display:{Name:'{"bold":true,"italic":false,"color":"black","text":"Blindness Arrow"}'},CustomPotionEffects:[{Id:15b,Amplifier:0b,Duration:200,ShowParticles:1b}],CustomPotionColor:3158064,HideFlags:63}
