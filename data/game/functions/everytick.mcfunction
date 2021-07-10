@@ -6,6 +6,7 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
 #> First join players
 scoreboard players add @a firstjoin 0
+execute as @a[scores={firstjoin=0}] run gamemode adventure @s
 execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","color":"white","bold":true}]
 execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
 execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 0.2
