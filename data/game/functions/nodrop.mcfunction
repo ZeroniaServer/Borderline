@@ -1,3 +1,6 @@
+#Kill books
+kill @e[type=item,nbt={Item:{id:"minecraft:written_book"}}]
+
 #UUID storage
 execute as @a store result score @s playerUUID run data get entity @s UUID[0]
 
