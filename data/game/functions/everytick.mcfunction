@@ -8,6 +8,8 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 scoreboard players add @a firstjoin 0
 execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","color":"white","bold":true}]
 execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
+execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 0.2
+execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.firework_rocket.twinkle_far master @s ~ ~ ~ 1 1.5
 scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
 
 #> Gridtimer bossbar
