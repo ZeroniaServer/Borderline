@@ -17,7 +17,9 @@ tag @a[nbt={SelectedItem:{id:"minecraft:tnt"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:tnt"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:explodingtile/place
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @a[dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=zoglin,dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
-execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~ ~1 ~ if entity @e[type=arrow,distance=..1] at @s run function powerup:explodingtile/explode
+execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=arrow,dx=2,dy=2,dz=2] at @s run function powerup:explodingtile/explode
+execute as @e[type=marker,tag=exploding,tag=fallen] at @s run function powerup:explodingtile/explode
+execute as @e[type=armor_stand,tag=tnt] at @s at @e[type=marker,tag=square,limit=1,sort=nearest] if entity @e[type=marker,tag=fallen,limit=1,sort=nearest,distance=..3] run kill @s 
 
 #> Falling Tile
 tag @a[nbt={SelectedItem:{id:"minecraft:sand"}}] add PressDrop
@@ -25,7 +27,7 @@ execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b}] run scoreb
 execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b},scores={CmdData=10..}] if data entity @s Thrower at @s run function powerup:fallingtile/place
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @a[dx=2,dy=2,dz=2] at @s run function powerup:fallingtile/fall
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=zoglin,dx=2,dy=2,dz=2] at @s run function powerup:fallingtile/fall
-execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~ ~1 ~ if entity @e[type=arrow,distance=..1] at @s run function powerup:fallingtile/fall
+execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2 ~ ~-2 if entity @e[type=arrow,dx=2,dy=2,dz=2] at @s run function powerup:fallingtile/fall
 
 #> Lifting Tile
 tag @a[nbt={SelectedItem:{id:"minecraft:piston"}}] add PressDrop
@@ -38,7 +40,7 @@ execute as @a[gamemode=!spectator,tag=!teleported] at @s if block ~ ~-1 ~ respaw
 execute as @a[gamemode=!spectator,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
 execute as @e[type=zoglin,tag=!teleported] at @s if block ~ ~-1 ~ respawn_anchor if entity @e[type=marker,tag=portal,tag=!fallen,tag=!vanished,distance=5..] run function powerup:portaltile/use
 execute as @e[type=zoglin,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
-execute as @e[type=marker,tag=portalfalling] at @s if entity @e[type=falling_block,distance=..5] run function powerup:portaltile/sand
+execute as @e[type=marker,tag=portalfalling] at @s positioned ~-2 ~-2 ~-2 if entity @e[type=falling_block,dx=2,dy=2,dz=2] at @s run function powerup:portaltile/sand
 
 #> Extra Life
 execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run function powerup:extralife/pickup
