@@ -12,7 +12,8 @@ execute if score $Countdown CmdData matches 0 as @a at @s run playsound minecraf
 
 execute if score $Countdown CmdData <= $cddone CmdData unless score $joined CmdData <= $minplayers CmdData run function game:start
 execute if score $Countdown CmdData <= $cddone CmdData unless score $Joined CmdData >= $minplayers CmdData run function game:stop
-execute if score $Countdown CmdData <= $cddone CmdData unless score $Joined CmdData >= $minplayers CmdData run tellraw @a {"text":"Invalid amount of players. The match has been cancelled.","color":"red"}
+execute unless score $Joined CmdData >= $minplayers CmdData run bossbar remove countdown
+execute unless score $Joined CmdData >= $minplayers CmdData run scoreboard players set $gamestate CmdData 0
 execute if score $Countdown CmdData <= $cddone CmdData unless score $Joined CmdData >= $minplayers CmdData run title @a title " "
 execute if score $Countdown CmdData <= $cddone CmdData unless score $Joined CmdData >= $minplayers CmdData run title @a subtitle " "
 execute if score $gamestate CmdData matches 1 if score $Countdown CmdData > $cddone CmdData run schedule function lobby:countdown 1s
