@@ -16,6 +16,7 @@ scoreboard objectives add portaluse dummy
 scoreboard objectives add hasarrow dummy
 scoreboard objectives add hastippedarrow dummy
 scoreboard objectives add hasbook dummy
+scoreboard objectives add firstjoin dummy
 
 #> Teams
 #Black team

@@ -4,6 +4,12 @@ execute if score $gamestate CmdData matches 2 run function game:gridteams
 execute if score $state CmdData matches 0.. run function powerup:main
 execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
+#> First join players
+scoreboard players add @a firstjoin 0
+execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","color":"white","bold":true}]
+execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
+scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
+
 #> Gridtimer bossbar
 bossbar set gridtimer players @a
 execute if score $state CmdData matches 0 run bossbar set gridtimer name ["",{"text":"[","bold":true,"color":"dark_red"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},{"text":"] ","bold":true,"color":"dark_red"},{"text":"Run to the red square!","bold":true,"color":"red"}]
