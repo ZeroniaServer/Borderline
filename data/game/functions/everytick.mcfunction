@@ -102,11 +102,11 @@ tag @a[team=!Black,team=!White,team=!Border] remove LastStanding
 
 #> End conditions - TODO add titles?
 #No more players with lives
-execute if score $gamestate CmdData matches 2 unless entity @a[scores={Lives=2..}] run tag @a add LastStanding
-execute if score $gamestate CmdData matches 2 if entity @a[scores={Lives=2..}] run tag @a remove LastStanding
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@p[tag=LastStanding]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
+execute if score $gamestate CmdData matches 2 unless entity @a[scores={Lives=2..}] run tag @a[team=!Lobby,team=!Spectator] add LastStanding
+execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@r[tag=LastStanding]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
+tag @a[tag=LastStanding] remove LastStanding
 
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
