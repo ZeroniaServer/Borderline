@@ -29,12 +29,12 @@ execute as @a[tag=!SmokeBombed,team=Black] unless entity @s[scores={armorcolor=1
 execute if score $state CmdData matches 0 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=2}] run item replace entity @s armor.head with leather_helmet{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"red","italic":false}]',color:12320768},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
 execute if score $state CmdData matches 0 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=2}] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"red","italic":false}]',color:12320768},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
 execute if score $state CmdData matches 0 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=2}] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"red","italic":false}]',color:12320768},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
-execute as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=2}] run scoreboard players set @s armorcolor 2
+execute if score $state CmdData matches 0 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=2}] run scoreboard players set @s armorcolor 2
 
 execute if score $state CmdData matches 1 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=3}] run item replace entity @s armor.head with leather_helmet{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"green","italic":false}]',color:48154},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
 execute if score $state CmdData matches 1 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=3}] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"green","italic":false}]',color:48154},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
 execute if score $state CmdData matches 1 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=3}] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{Name:'[{"text":"Border Armor","color":"green","italic":false}]',color:48154},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:127} 1
-execute as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=3}] run scoreboard players set @s armorcolor 3
+execute if score $state CmdData matches 1 as @a[tag=!SmokeBombed,team=Border] unless entity @s[scores={armorcolor=3}] run scoreboard players set @s armorcolor 3
 
 stopsound @a player item.armor.equip_generic
 stopsound @a player item.armor.equip_leather
