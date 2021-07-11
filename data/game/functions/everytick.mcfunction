@@ -94,6 +94,7 @@ effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 effect give @a night_vision 1000000 255 true
 function game:nodrop
+execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s GameID
 execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run team join Lobby
 execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute as @a[scores={leaveGame=1..}] run clear @s
