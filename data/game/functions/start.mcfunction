@@ -23,8 +23,8 @@ team join Spectator @a[tag=!JoinPlay]
 gamemode spectator @a[tag=!JoinPlay]
 title @a title {"text":"Let the game begin!","color":"dark_aqua"}
 execute store result score $players CmdData if entity @a[tag=JoinPlay]
-execute if score $players CmdData matches 2.. run title @a[tag=JoinPlay] subtitle {"text":"Keep your enemies beyond the border!","color":"gold"}
-execute if score $players CmdData matches 1 run title @a[tag=JoinPlay] subtitle {"text":"Don't stay beyond the border!","color":"gold"}
+execute if score $players CmdData matches 2.. run title @a[tag=JoinPlay] subtitle {"text":"Keep your enemies beyond limits!","color":"gold"}
+execute if score $players CmdData matches 1 run title @a[tag=JoinPlay] subtitle {"text":"Don't get stuck beyond limits!","color":"gold"}
 tag @a remove JoinPlay
 clear @a
 execute as @a run tp @s @s
