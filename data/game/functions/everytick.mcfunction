@@ -5,6 +5,7 @@ execute if score $state CmdData matches 0.. run function powerup:main
 execute if score $gamestate CmdData matches 2 run function game:bowcharge
 
 #> First join players
+scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
 scoreboard players add @a firstjoin 0
 execute as @a[scores={firstjoin=0}] run gamemode adventure @s
 execute as @a[scores={firstjoin=0}] run scoreboard players add @s leaveGame 1
@@ -12,8 +13,6 @@ execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","co
 execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
 execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 0.2
 execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.firework_rocket.twinkle_far master @s ~ ~ ~ 1 1.5
-scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
-
 
 #> Gridtimer bossbar
 bossbar set gridtimer players @a
@@ -102,6 +101,7 @@ tag @a[scores={leaveGame=1..}] remove JoinPlay
 execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
+execute as @a[scores={leaveGame=1..,firstjoin=1..}] run title @s clear
 
 #Kick people with the wrong GameID out of the game.
 execute as @a[team=Player] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
