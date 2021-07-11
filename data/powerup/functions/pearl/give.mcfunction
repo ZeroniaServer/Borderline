@@ -1,1 +1,1 @@
-give @s ender_pearl{Enchantments:[{}],display:{Name:'{"bold":true,"italic":false,"color":"light_purple","text":"Ender Pearl"}'}}
+give @s ender_pearl{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,display:{Name:'{"bold":true,"italic":false,"color":"light_purple","text":"Ender Pearl"}'}}

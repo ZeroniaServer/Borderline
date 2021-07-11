@@ -1,1 +1,1 @@
-give @s rabbit_foot{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"aqua","text":"Jump Boost"}'}}
+give @s rabbit_foot{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"aqua","text":"Jump Boost"}'}}

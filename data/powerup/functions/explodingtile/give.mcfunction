@@ -1,1 +1,1 @@
-give @s tnt{Enchantments:[{}],Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"red","text":"Exploding Tile"}'}}
+give @s tnt{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"red","text":"Exploding Tile"}'}}

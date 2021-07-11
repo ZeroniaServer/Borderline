@@ -9,7 +9,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}]}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -50,7 +50,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -69,7 +69,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -88,7 +88,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -107,7 +107,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -126,7 +126,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -145,7 +145,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -164,7 +164,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{Enchantments:[{}],Droppable:1b}"
+                            "tag": "{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
@@ -183,7 +183,7 @@
                     "functions": [
                         {
                             "function": "minecraft:set_nbt",
-                            "tag": "{BlockStateTag:{charges:\"4\"},Enchantments:[{}],Droppable:1b}"
+                            "tag": "{BlockStateTag:{charges:\"4\"},Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b}"
                         },
                         {
                             "function": "minecraft:set_name",
