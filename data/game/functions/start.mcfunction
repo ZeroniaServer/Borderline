@@ -34,7 +34,7 @@ scoreboard players reset @a gridcolor
 
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}
-execute as @e[tag=GameID] store result score $GameID GameID run data get entity @s UUID[0]
+execute as @e[type=marker,tag=GameID] store result score $GameID GameID run data get entity @s UUID[0]
 execute as @a[team=Player] store result score @s GameID run scoreboard players get $GameID GameID
 
 #> Add gridtimer bossbar
