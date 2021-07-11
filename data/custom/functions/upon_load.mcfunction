@@ -15,25 +15,18 @@ scoreboard objectives add SmokeTime dummy
 scoreboard objectives add portaluse dummy
 scoreboard objectives add hasarrow dummy
 scoreboard objectives add hastippedarrow dummy
-scoreboard objectives add hasbook dummy
 scoreboard objectives add firstjoin dummy
+scoreboard objectives add gridcolor dummy
 
 #> Teams
-#Black team
-team add Black
-team modify Black color white
-team modify Black friendlyFire true
-team modify Black seeFriendlyInvisibles false
-#White team
-team add White
-team modify White color white
-team modify White friendlyFire true
+#Player team
+team add Player
+team modify Player color white
 team modify White seeFriendlyInvisibles false
-#In-border team
-team add Border
-team modify Border color white
-team modify Border friendlyFire true
-team modify Border seeFriendlyInvisibles false
+#Remove black/white/border teams
+team remove Black
+team remove White
+team remove Border
 #Lobby team
 team add Lobby
 team modify Lobby color gold

@@ -32,14 +32,14 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run 
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1
 
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
-execute if score $state CmdData matches 1 if score $timer Timer matches 100 as @e[type=marker,tag=selected,tag=!fallen] at @s positioned ~-2.8 ~ ~-2.8 run scoreboard players add @a[gamemode=!spectator,team=!Spectator,dx=5.6,dy=4,dz=5.6] Rounds 1
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 as @e[type=marker,tag=selected,tag=!fallen] at @s positioned ~-2.8 ~ ~-2.8 run scoreboard players add @a[gamemode=!spectator,team=Player,dx=5.6,dy=4,dz=5.6] Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add $TotalRounds Rounds 1
-execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Border friendlyFire true
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Player friendlyFire true
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run execute as @a at @s run playsound minecraft:entity.shulker_bullet.hit master @s ~ ~ ~ 2 0.7
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run function grid:random
 
 execute if score $state CmdData matches 0 if score $timer Timer matches 0 run bossbar set gridtimer color red
-execute if score $state CmdData matches 0 if score $timer Timer matches 0 run team modify Border friendlyFire false
+execute if score $state CmdData matches 0 if score $timer Timer matches 0 run team modify Player friendlyFire false
 execute if score $state CmdData matches 0 if score $timer Timer matches 0 run function grid:vanish
 
 execute if score $state CmdData matches 0 if score $timer Timer matches 50 run function grid:transparent
@@ -55,20 +55,20 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
-tag @a[team=!Lobby,team=!Spectator,scores={Lives=1..},tag=dead] add LastStanding
-execute as @a[gamemode=!spectator,predicate=custom:void] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" fell in the void.","color":"red"}]
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,tag=wall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" stood on the wall.","color":"red"}]
-tag @a[gamemode=!spectator,tag=wall] add dead
-tag @a[gamemode=!spectator,tag=wall] remove wall
+tag @a[team=Player,scores={Lives=1..},tag=dead] add LastStanding
+execute as @a[gamemode=!spectator,team=Player,predicate=custom:void] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" fell in the void.","color":"red"}]
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=wall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" stood on the wall.","color":"red"}]
+tag @a[gamemode=!spectator,team=Player,tag=wall] add dead
+tag @a[gamemode=!spectator,team=Player,tag=wall] remove wall
 
 effect clear @a[tag=dead]
 tag @a[tag=dead] remove SmokeBombed
@@ -101,14 +101,14 @@ execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
 
 #Kick people with the wrong GameID out of the game.
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run gamemode spectator @s
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run team join Spectator @s
+execute as @a[team=Player] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
+execute as @a[team=Player] unless score @s GameID = $GameID GameID run gamemode spectator @s
+execute as @a[team=Player] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
+execute as @a[team=Player] unless score @s GameID = $GameID GameID run team join Spectator @s
 
 scoreboard players reset @a leaveGame
 execute unless score $gamestate CmdData matches 2 run function lobby:main
-tag @a[team=!Black,team=!White,team=!Border] remove LastStanding
+tag @a[team=!Player] remove LastStanding
 
 #> End conditions
 #No more players with lives

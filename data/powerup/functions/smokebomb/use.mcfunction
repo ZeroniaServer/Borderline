@@ -1,5 +1,5 @@
 execute store result score $temp playerUUID run data get entity @s Thrower[0]
-execute as @a[team=!Lobby,team=!Spectator] if score @s playerUUID = $temp playerUUID run tag @s add SmokeBombed
+execute as @a[team=Player] if score @s playerUUID = $temp playerUUID run tag @s add SmokeBombed
 scoreboard players reset $temp playerUUID
 item replace entity @a[tag=SmokeBombed,limit=1] armor.head with air
 item replace entity @a[tag=SmokeBombed,limit=1] armor.chest with air

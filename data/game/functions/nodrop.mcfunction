@@ -9,7 +9,7 @@ execute as @e[type=item,tag=!processed,tag=!PowerupSpawn] unless entity @s[type=
 execute as @e[type=item,tag=!processed,tag=!PowerupSpawn] unless entity @s[type=item,nbt={Item:{tag:{Droppable:1b}}}] store result score @s playerUUID run data get entity @s Thrower[0]
 execute as @e[type=item,tag=!processed,tag=!PowerupSpawn] unless entity @s[type=item,nbt={Item:{tag:{Droppable:1b}}}] run data merge entity @s {PickupDelay:0s}
 execute as @e[type=item,tag=!processed,tag=!PowerupSpawn] unless entity @s[type=item,nbt={Item:{tag:{Droppable:1b}}}] run tag @s add processed
-execute as @e[type=item,tag=!PowerupSpawn] unless entity @s[type=item,nbt={Item:{tag:{Droppable:1b}}}] if entity @a[team=!Spectator] at @s run function game:nodroploop
+execute as @e[type=item,tag=!PowerupSpawn] unless entity @s[type=item,nbt={Item:{tag:{Droppable:1b}}}] if entity @a[team=Player] at @s run function game:nodroploop
 tag @a[tag=itemChecked] remove itemChecked
 
 #Kills items after a while
