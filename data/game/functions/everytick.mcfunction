@@ -54,7 +54,7 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 execute if score $state CmdData matches 0 if score $timer Timer matches 1 run execute as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~ 2 0.95
 
 #> Death stuff
-execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
+execute as @a[predicate=custom:void] run tag @s add dead
 tag @a[team=Player,scores={Lives=1..},tag=dead] add LastStanding
 execute as @a[gamemode=!spectator,team=Player,predicate=custom:void] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" fell in the void.","color":"red"}]
 execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
@@ -72,19 +72,22 @@ tag @a[gamemode=!spectator,team=Player,tag=wall] remove wall
 
 effect clear @a[tag=dead]
 tag @a[tag=dead] remove SmokeBombed
-execute as @a[tag=dead] run gamemode spectator @s
-execute as @a[tag=dead] run tp @s 8 20 8
-execute as @a[tag=dead] run clear @s #custom:powerups
-execute as @a[tag=dead] run scoreboard players remove @s Lives 1
-tag @a[tag=dead,scores={Lives=1..}] add ChargeArrow
-execute as @a[tag=dead] run title @s title {"text":"You died!","color":"dark_aqua"}
-execute as @a[tag=dead,scores={Lives=2..}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" lives remaining.","color":"gold"}]
-execute as @a[tag=dead,scores={Lives=1}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" life remaining.","color":"gold"}]
-execute as @a[tag=dead,scores={Lives=..0}] run title @s subtitle {"text":"Better luck next time!","color":"red"}
-execute as @a[tag=dead,scores={Lives=..0}] at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.4 2
-execute as @a[tag=dead,scores={Lives=..0}] unless score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" rounds!","color":"red"}]
-execute as @a[tag=dead,scores={Lives=..0}] if score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" round!","color":"red"}]
-execute as @a[tag=dead] run function game:lifeboots
+execute as @a[team=Player,tag=dead] run gamemode spectator @s
+execute as @a[team=Player,tag=dead] run tp @s 8 20 8
+execute as @a[team=Player,tag=dead,scores={Lives=..0}] run tag @s remove dead
+execute as @a[team=Spectator,tag=dead] run tp @s 8 20 8
+execute as @a[team=Lobby,tag=dead] run tp @s 8 5 8
+execute as @a[team=Player,tag=dead] run clear @s #custom:powerups
+execute as @a[team=Player,tag=dead] run scoreboard players remove @s Lives 1
+tag @a[team=Player,tag=dead,scores={Lives=1..}] add ChargeArrow
+execute as @a[team=Player,tag=dead] run title @s title {"text":"You died!","color":"dark_aqua"}
+execute as @a[team=Player,tag=dead,scores={Lives=2..}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" lives remaining.","color":"gold"}]
+execute as @a[team=Player,tag=dead,scores={Lives=1}] run title @s subtitle ["",{"score":{"name":"@s","objective":"Lives"},"color":"blue"},{"text":" life remaining.","color":"gold"}]
+execute as @a[team=Player,tag=dead,scores={Lives=..0}] run title @s subtitle {"text":"Better luck next time!","color":"red"}
+execute as @a[team=Player,tag=dead,scores={Lives=..0}] at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.4 2
+execute as @a[team=Player,tag=dead,scores={Lives=..0}] unless score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" rounds!","color":"red"}]
+execute as @a[team=Player,tag=dead,scores={Lives=..0}] if score @s Rounds matches 1 run tellraw @a ["",{"selector":"@s","bold":true,"color":"gray"},{"text":" was eliminated after surviving ","color":"red"},{"score":{"name":"@s","objective":"Rounds"},"color":"gold"},{"text":" round!","color":"red"}]
+execute as @a[team=Player,tag=dead] run function game:lifeboots
 tag @a[tag=dead] remove dead
 
 #> Lobby players and relogs
@@ -92,8 +95,8 @@ effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
 effect give @a night_vision 1000000 255 true
 function game:nodrop
-execute if score $gamestate CmdData matches -1 as @a[scores={leaveGame=1..}] run team join Lobby
-execute if score $gamestate CmdData matches -1 as @a[scores={leaveGame=1..}] run gamemode adventure @s
+execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run team join Lobby
+execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute as @a[scores={leaveGame=1..}] run clear @s
 tag @a[scores={leaveGame=1..}] remove JoinPlay
 execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
@@ -112,11 +115,11 @@ tag @a[team=!Player] remove LastStanding
 
 #> End conditions
 #No more players with lives
-execute if entity @a[scores={Lives=1..}] run tag @a[tag=LastStanding] remove LastStanding
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@a[tag=LastStanding,limit=1,sort=random]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
-
+execute if entity @a[team=Player,scores={Lives=1..}] run tag @a[tag=LastStanding] remove LastStanding
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@a[tag=LastStanding,limit=1,sort=random]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
+execute unless entity @a[team=Player,scores={Lives=1..}] if entity @e[tag=GameID,type=marker] run function game:stop
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
 execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop

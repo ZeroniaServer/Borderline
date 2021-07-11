@@ -36,6 +36,7 @@ scoreboard players reset $powertime Timer
 #> Manage players
 tag @a[tag=LastStanding] remove LastStanding
 tag @a remove JoinPlay
+kill @e[type=marker,tag=GameID]
 scoreboard objectives remove GameID
 scoreboard objectives add GameID dummy
 team join Lobby @a
