@@ -19,7 +19,7 @@ scoreboard objectives add hasbook dummy
 scoreboard objectives add firstjoin dummy
 
 #> Teams
-#Black team
+#Outside team
 team add Black
 team modify Black color white
 team modify Black friendlyFire true
@@ -51,3 +51,4 @@ gamerule fallDamage false
 
 #> Extra
 execute positioned 8 3 8 run tag @e[type=marker,tag=square,limit=1,sort=nearest] add center
+time set 12725

@@ -7,11 +7,13 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 #> First join players
 scoreboard players add @a firstjoin 0
 execute as @a[scores={firstjoin=0}] run gamemode adventure @s
+execute as @a[scores={firstjoin=0}] run scoreboard players add @s leaveGame 1
 execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","color":"white","bold":true}]
 execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
 execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 0.2
 execute as @a[scores={firstjoin=0}] at @s run playsound minecraft:entity.firework_rocket.twinkle_far master @s ~ ~ ~ 1 1.5
 scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
+
 
 #> Gridtimer bossbar
 bossbar set gridtimer players @a
@@ -30,7 +32,7 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run 
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1
 
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
-execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add @a[gamemode=!spectator] Rounds 1
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 as @e[type=marker,tag=selected,tag=!fallen] at @s positioned ~-2 ~ ~-2 run scoreboard players add @a[gamemode=!spectator,team=!Spectator,dx=2,dy=4,dz=2] Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add $TotalRounds Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Border friendlyFire true
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run execute as @a at @s run playsound minecraft:entity.shulker_bullet.hit master @s ~ ~ ~ 2 0.7
@@ -86,18 +88,24 @@ tag @a[tag=dead] remove dead
 #> Lobby players and relogs
 effect give @a saturation 1000000 255 true
 effect give @a resistance 1000000 255 true
+effect give @a night_vision 1000000 255 true
 function game:nodrop
-execute as @a[team=] run team join Lobby
-execute as @a[scores={leaveGame=1..}] run team join Lobby
+execute if score $gamestate CmdData matches -1 as @a[scores={leaveGame=1..}] run team join Lobby
+execute if score $gamestate CmdData matches -1 as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute as @a[scores={leaveGame=1..}] run clear @s
-execute as @a[scores={leaveGame=1..}] if score $gamestate CmdData matches 2 run scoreboard players reset @s GameID
 tag @a[scores={leaveGame=1..}] remove JoinPlay
-execute as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Rounds
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
+
+#Kick people with the wrong GameID out of the game.
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run gamemode spectator @s
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
+execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run team join Spectator @s
+
 scoreboard players reset @a leaveGame
-execute unless score $gamestate CmdData matches 2 run function lobby:main
+execute unless score $gamestate CmdData matches 0.. run function lobby:main
 tag @a[team=!Black,team=!White,team=!Border] remove LastStanding
 
 #> End conditions
@@ -111,11 +119,3 @@ tag @a[tag=LastStanding] remove LastStanding
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
 execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop
-
-#> Kick people with the wrong GameID out of the game.
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run clear @s
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tag @s remove JoinPlay
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run tellraw @s {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run gamemode spectator @s
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run scoreboard players reset @s GameID
-execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run team join Spectator @s

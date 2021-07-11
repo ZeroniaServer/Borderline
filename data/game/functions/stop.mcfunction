@@ -48,7 +48,7 @@ bossbar remove gridtimer
 bossbar remove countdown
 
 #> Change gamestate
-scoreboard players set $gamestate CmdData 0
+scoreboard players remove $gamestate CmdData 1
 
 #> Set up lobby
 function lobby:build
