@@ -32,7 +32,7 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run 
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1
 
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 if score $maxtime Timer matches 55.. run scoreboard players remove $maxtime Timer 5
-execute if score $state CmdData matches 1 if score $timer Timer matches 100 as @e[type=marker,tag=selected,tag=!fallen] at @s positioned ~-2 ~ ~-2 run scoreboard players add @a[gamemode=!spectator,team=!Spectator,dx=2,dy=4,dz=2] Rounds 1
+execute if score $state CmdData matches 1 if score $timer Timer matches 100 as @e[type=marker,tag=selected,tag=!fallen] at @s positioned ~-2.8 ~ ~-2.8 run scoreboard players add @a[gamemode=!spectator,team=!Spectator,dx=5.6,dy=4,dz=5.6] Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run scoreboard players add $TotalRounds Rounds 1
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run team modify Border friendlyFire true
 execute if score $state CmdData matches 1 if score $timer Timer matches 100 run execute as @a at @s run playsound minecraft:entity.shulker_bullet.hit master @s ~ ~ ~ 2 0.7
