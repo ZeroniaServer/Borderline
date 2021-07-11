@@ -56,16 +56,16 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 execute as @a[predicate=custom:void] run tag @s add dead
 tag @a[team=Player,scores={Lives=1..},tag=dead] add LastStanding
 execute as @a[gamemode=!spectator,team=Player,predicate=custom:void] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" fell in the void.","color":"red"}]
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-execute as @a[gamemode=!spectator,team=Player,tag=wall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" stood on the wall.","color":"red"}]
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~ ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~ ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
+execute as @a[gamemode=!spectator,team=Player,tag=wall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" got too close to the wall.","color":"red"}]
 tag @a[gamemode=!spectator,team=Player,tag=wall] add dead
 tag @a[gamemode=!spectator,team=Player,tag=wall] remove wall
 
