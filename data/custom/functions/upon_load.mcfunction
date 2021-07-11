@@ -19,7 +19,7 @@ scoreboard objectives add hasbook dummy
 scoreboard objectives add firstjoin dummy
 
 #> Teams
-#Outside team
+#Black team
 team add Black
 team modify Black color white
 team modify Black friendlyFire true

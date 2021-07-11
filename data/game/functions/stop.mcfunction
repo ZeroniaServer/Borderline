@@ -34,6 +34,7 @@ scoreboard players reset $maxptime Timer
 scoreboard players reset $powertime Timer
 
 #> Manage players
+tag @a[tag=LastStanding] remove LastStanding
 tag @a remove JoinPlay
 scoreboard objectives remove GameID
 scoreboard objectives add GameID dummy
@@ -48,7 +49,7 @@ bossbar remove gridtimer
 bossbar remove countdown
 
 #> Change gamestate
-scoreboard players remove $gamestate CmdData 1
+scoreboard players set $gamestate CmdData 0
 
 #> Set up lobby
 function lobby:build

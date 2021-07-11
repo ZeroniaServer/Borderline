@@ -55,6 +55,8 @@ execute if score $state CmdData matches 0 if score $timer Timer matches 1 run ex
 
 #> Death stuff
 execute as @a[gamemode=!spectator,predicate=custom:void] run tag @s add dead
+tag @a[team=!Lobby,team=!Spectator,scores={Lives=1..},tag=dead] add LastStanding
+execute as @a[gamemode=!spectator,predicate=custom:void] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" fell in the void.","color":"red"}]
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~ ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~ tinted_glass run tag @s[nbt={OnGround:1b}] add wall
@@ -64,7 +66,7 @@ execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~-0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
 execute as @a[gamemode=!spectator,tag=!wall,predicate=custom:abovewall] at @s if block ~-0.2 ~-1 ~0.2 tinted_glass run tag @s[nbt={OnGround:1b}] add wall
-tellraw @a[gamemode=!spectator,tag=wall] {"text":"Don't stand on the wall!","color":"red"}
+execute as @a[gamemode=!spectator,tag=wall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" stood on the wall.","color":"red"}]
 tag @a[gamemode=!spectator,tag=wall] add dead
 tag @a[gamemode=!spectator,tag=wall] remove wall
 
@@ -105,16 +107,15 @@ execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID Game
 execute as @a[team=!Spectator,team=!Lobby] unless score @s GameID = $GameID GameID run team join Spectator @s
 
 scoreboard players reset @a leaveGame
-execute unless score $gamestate CmdData matches 0.. run function lobby:main
+execute unless score $gamestate CmdData matches 2 run function lobby:main
 tag @a[team=!Black,team=!White,team=!Border] remove LastStanding
 
 #> End conditions
 #No more players with lives
-execute if score $gamestate CmdData matches 2 unless entity @a[scores={Lives=2..}] run tag @a[team=!Lobby,team=!Spectator,scores={Lives=1..}] add LastStanding
-execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@r[tag=LastStanding]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
+execute if entity @a[scores={Lives=1..}] run tag @a[tag=LastStanding] remove LastStanding
+execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"},"\n",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@a[tag=LastStanding,limit=1,sort=random]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"},"\n"]
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
 execute unless entity @a[scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
-tag @a[tag=LastStanding] remove LastStanding
 
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
