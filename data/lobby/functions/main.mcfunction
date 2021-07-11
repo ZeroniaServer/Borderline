@@ -17,7 +17,7 @@ execute as @a[tag=JoinPlay] run scoreboard players add $Joined CmdData 1
 scoreboard players set $minplayers CmdData 1
 
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run scoreboard players set $Countdown CmdData 20
-execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar add countdown ["",{"text":"Starting in: ","bold":true,"color":"white"},{"score":{"name":"$Countdown","objective":"CmdData"},"bold":true,"color":"dark_gray"}]
+execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar add countdown ["",{"text":"Starting in: ","bold":true,"color":"white"},{"score":{"name":"$Countdown","objective":"CmdData"},"bold":true,"color":"gold"}]
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar set countdown max 20
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar set countdown style notched_20
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run bossbar set countdown value 20

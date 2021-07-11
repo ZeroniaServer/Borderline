@@ -3,7 +3,7 @@ scoreboard players set $cddone CmdData 0
 scoreboard players set $cdsound CmdData 10
 bossbar set countdown players @a
 execute store result bossbar countdown value run scoreboard players get $Countdown CmdData
-bossbar set countdown name ["",{"text":"Starting in: ","bold":true,"color":"white"},{"score":{"name":"$Countdown","objective":"CmdData"},"bold":true,"color":"dark_gray"}]
+bossbar set countdown name ["",{"text":"Starting in: ","bold":true,"color":"white"},{"score":{"name":"$Countdown","objective":"CmdData"},"bold":true,"color":"gold"}]
 
 execute if score $Countdown CmdData <= $cdsound CmdData if score $Countdown CmdData matches 3.. as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1
 execute if score $Countdown CmdData matches 2 as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.25
