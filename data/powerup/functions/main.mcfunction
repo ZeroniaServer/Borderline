@@ -15,7 +15,7 @@ scoreboard players reset @a DealtDamage
 #> Exploding Tile
 tag @a[nbt={SelectedItem:{id:"minecraft:tnt"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:tnt"},OnGround:1b}] if data entity @s Thrower at @s run function powerup:explodingtile/place
-execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @a[team=Player,dx=5.6,dy=2,dz=5.6] at @s run function powerup:explodingtile/explode
+execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @a[team=Player,gamemode=!spectator,dx=5.6,dy=2,dz=5.6] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @e[type=zoglin,dx=5.6,dy=2,dz=5.6] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @e[type=arrow,dx=5.6,dy=2,dz=5.6] at @s run function powerup:explodingtile/explode
 execute as @e[type=marker,tag=exploding,tag=fallen] at @s run function powerup:explodingtile/explode
@@ -25,7 +25,7 @@ execute as @e[type=armor_stand,tag=tnt] at @s at @e[type=marker,tag=square,limit
 tag @a[nbt={SelectedItem:{id:"minecraft:sand"}}] add PressDrop
 execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b}] run scoreboard players add @s CmdData 1
 execute as @e[type=item,nbt={Item:{id:"minecraft:sand"},OnGround:1b},scores={CmdData=10..}] if data entity @s Thrower at @s run function powerup:fallingtile/place
-execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @a[team=Player,dx=5.6,dy=2,dz=5.6] at @s run function powerup:fallingtile/fall
+execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @a[team=Player,gamemode=!spectator,dx=5.6,dy=2,dz=5.6] at @s run function powerup:fallingtile/fall
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @e[type=zoglin,dx=5.6,dy=2,dz=5.6] at @s run function powerup:fallingtile/fall
 execute as @e[type=marker,tag=falling,tag=!fallen,tag=!vanished] at @s positioned ~-2.8 ~ ~-2.8 if entity @e[type=arrow,dx=5.6,dy=2,dz=5.6] at @s run function powerup:fallingtile/fall
 
