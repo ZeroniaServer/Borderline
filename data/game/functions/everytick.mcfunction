@@ -67,7 +67,6 @@ execute as @a[gamemode=!spectator,team=Player,tag=!wall] at @s if block ~-0.3 ~-
 execute as @a[gamemode=!spectator,team=Player,tag=wall,predicate=custom:abovewall] run tellraw @a ["",{"selector":"@s","bold":false,"color":"gray"},{"text":" stood on the wall.","color":"red"}]
 tag @a[gamemode=!spectator,team=Player,tag=wall,predicate=custom:abovewall] add dead
 execute as @a[gamemode=!spectator,team=Player,tag=wall,predicate=!custom:abovewall] at @s run function game:getoutofwall
-
 tag @a[gamemode=!spectator,team=Player,tag=wall] remove wall
 
 tag @a[team=Player,scores={Lives=1..},tag=dead] add LastStanding
@@ -78,7 +77,7 @@ execute as @a[team=Player,tag=dead] run tp @s 8 20 8
 execute as @a[team=Player,tag=dead,scores={Lives=..0}] run tag @s remove dead
 execute as @a[team=Spectator,tag=dead] run tp @s 8 20 8
 execute as @a[team=Lobby,tag=dead] run tp @s 8 5 8
-execute as @a[team=Player,tag=dead] run clear @s #custom:powerups
+execute as @a[team=Player,tag=dead] unless score $keepinv CmdData matches 1 run clear @s #custom:powerups
 execute as @a[team=Player,tag=dead] run scoreboard players remove @s Lives 1
 tag @a[team=Player,tag=dead,scores={Lives=1..}] add ChargeArrow
 execute as @a[team=Player,tag=dead] run title @s title {"text":"You died!","color":"dark_aqua"}
