@@ -123,4 +123,5 @@ execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate Cmd
 execute unless entity @a[team=Player,scores={Lives=1..}] if entity @e[type=marker,tag=GameID] run function game:stop
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
-execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop
+execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..5 run tellraw @a [{"text":"Too many tiles are missing! Ending the game.","color":"red"}]
+execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..5 run function game:stop

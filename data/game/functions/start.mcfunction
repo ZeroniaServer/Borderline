@@ -25,13 +25,6 @@ tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
 scoreboard players reset @a gridcolor
 
-#> Grid/timer setup
-scoreboard players set $maxtime Timer 200
-scoreboard players set $maxptime Timer 320
-tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
-tag @e[type=marker,tag=center] add old
-function grid:random
-
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}
 execute as @e[type=marker,tag=GameID] store result score $GameID GameID run data get entity @s UUID[0]
@@ -47,6 +40,13 @@ scoreboard players set @a[team=Player] Lives 3
 scoreboard players reset @a[team=!Player] Lives
 scoreboard players set @a[team=Player] Rounds 0
 scoreboard players set $TotalRounds Rounds 0
+
+#> Grid/timer setup
+scoreboard players set $maxtime Timer 200
+scoreboard players set $maxptime Timer 320
+tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
+tag @e[type=marker,tag=center] add old
+function grid:random
 
 #> Gear
 item replace entity @a[team=Player] hotbar.0 with bow{Unbreakable:1b,display:{Name:'[{"text":"Slap Shot","italic":false,"bold":true,"color":"gold"}]',Lore:['[{"text":"Arrows recharge over time","italic":false,"color":"gray"}]']},Enchantments:[{id:"punch",lvl:2}],HideFlags:4}

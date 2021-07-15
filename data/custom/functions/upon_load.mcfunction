@@ -23,7 +23,7 @@ scoreboard objectives add lifts dummy
 #Player team
 team add Player
 team modify Player color white
-team modify White seeFriendlyInvisibles false
+team modify Player seeFriendlyInvisibles false
 #Lobby team
 team add Lobby
 team modify Lobby color gold
