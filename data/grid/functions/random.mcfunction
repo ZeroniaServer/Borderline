@@ -18,3 +18,5 @@ execute if score $players CmdData matches 10.. run function powerup:spawn
 execute as @a at @s run playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 0
 execute as @e[type=marker,tag=selected,limit=1] at @s run worldborder center ~ ~
 item replace entity @e[type=armor_stand,tag=tnt] armor.head with tnt
+execute as @a[tag=respawned] at @s facing entity @e[type=marker,tag=selected,limit=1] eyes run tp @s ~ ~ ~ ~ ~
+tag @a[tag=respawned] remove respawned
