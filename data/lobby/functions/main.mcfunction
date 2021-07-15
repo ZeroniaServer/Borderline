@@ -1,14 +1,14 @@
-execute as @e[tag=Joinpad] at @s run particle minecraft:dust_color_transition 0 0 0 1.5 1 1 1 ~ ~ ~ 0.5 0 0.5 0 8 force
+execute as @e[type=area_effect_cloud,tag=Joinpad] at @s run particle minecraft:dust_color_transition 0 0 0 1.5 1 1 1 ~ ~ ~ 0.5 0 0.5 0 8 force
 
-execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tag @s remove JoinSpec
-execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will play in the next match!","color":"gray"}]
-execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 0.3 1
-execute as @a[tag=!JoinPlay] at @s if entity @e[tag=JoinpadPlay,distance=..1.5] run tag @s add JoinPlay
+execute as @a[tag=!JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadPlay,distance=..1.5] run tag @s remove JoinSpec
+execute as @a[tag=!JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadPlay,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will play in the next match!","color":"gray"}]
+execute as @a[tag=!JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadPlay,distance=..1.5] run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 0.3 1
+execute as @a[tag=!JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadPlay,distance=..1.5] run tag @s add JoinPlay
 
-execute as @a[tag=JoinPlay] at @s if entity @e[tag=JoinpadSpec,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will no longer play in the next match!","color":"gray"}]
-execute as @a[tag=JoinPlay] at @s if entity @e[tag=JoinpadSpec,distance=..1.5] run playsound minecraft:block.beehive.exit master @a ~ ~ ~ 0.3 1
-execute as @a[tag=JoinPlay] at @s if entity @e[tag=JoinpadSpec,distance=..1.5] run effect clear @s glowing
-execute as @a[tag=JoinPlay] at @s if entity @e[tag=JoinpadSpec,distance=..1.5] run tag @s remove JoinPlay
+execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run tellraw @a ["",{"selector":"@s","bold":true,"color":"white"},{"text":" will no longer play in the next match!","color":"gray"}]
+execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run playsound minecraft:block.beehive.exit master @a ~ ~ ~ 0.3 1
+execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run effect clear @s glowing
+execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run tag @s remove JoinPlay
 
 effect give @a[tag=JoinPlay] glowing 2 0 true
 
@@ -25,8 +25,8 @@ execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minpl
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run schedule function lobby:countdown 1s
 execute if score $gamestate CmdData matches 0 if score $Joined CmdData >= $minplayers CmdData run scoreboard players set $gamestate CmdData 1
 
-execute as @e[tag=YZEROcredit] at @s run particle dust 1 1 1 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
-execute as @e[tag=Evcredit] at @s run particle dust 0 0 0 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
+execute as @e[type=armor_stand,tag=YZEROcredit] at @s run particle dust 1 1 1 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
+execute as @e[type=armor_stand,tag=Evcredit] at @s run particle dust 0 0 0 2 ~ ~-0.2 ~ 0.3 0 0.3 0 1 force
 
 #> Lobby book
 tag @a[team=Lobby,tag=hasbook] remove hasbook

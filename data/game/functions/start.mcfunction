@@ -5,22 +5,15 @@ tag @s add JoinPlay
 
 #> Remove lobby
 bossbar remove countdown
-kill @e[tag=Joinpad]
-kill @e[tag=Credits]
+kill @e[type=area_effect_cloud,tag=Joinpad]
+kill @e[type=armor_stand,tag=Credits]
 setblock 10 5 8 air
-
-#> Grid/timer setup
-scoreboard players set $maxtime Timer 200
-scoreboard players set $maxptime Timer 320
-tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
-tag @e[type=marker,tag=center] add old
-function grid:random
 
 #> Player setup
 gamemode adventure @a
 team join Player @a[team=Lobby,tag=JoinPlay]
 team join Spectator @a[tag=!JoinPlay]
-gamemode spectator @a[tag=!JoinPlay]
+gamemode spectator @a[team=Spectator]
 title @a title {"text":"Let the game begin!","color":"dark_aqua"}
 execute store result score $players CmdData if entity @a[tag=JoinPlay]
 execute if score $players CmdData matches 2.. run title @a[tag=JoinPlay] subtitle {"text":"Keep your opponents beyond limits!","color":"gold"}
@@ -31,6 +24,13 @@ execute as @a run tp @s @s
 tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
 scoreboard players reset @a gridcolor
+
+#> Grid/timer setup
+scoreboard players set $maxtime Timer 200
+scoreboard players set $maxptime Timer 320
+tag @e[type=marker,tag=square,sort=random,limit=1,tag=!selected] add selected
+tag @e[type=marker,tag=center] add old
+function grid:random
 
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}
@@ -45,7 +45,7 @@ bossbar set gridtimer color red
 #> Lives/Rounds
 scoreboard players set @a[team=Player] Lives 3
 scoreboard players reset @a[team=!Player] Lives
-scoreboard players set @a Rounds 0
+scoreboard players set @a[team=Player] Rounds 0
 scoreboard players set $TotalRounds Rounds 0
 
 #> Gear

@@ -7,7 +7,6 @@ execute if score $gamestate CmdData matches 2 run function game:bowcharge
 #> First join players
 scoreboard players set @a[scores={firstjoin=0}] firstjoin 1
 scoreboard players add @a firstjoin 0
-execute as @a[scores={firstjoin=0}] run gamemode adventure @s
 execute as @a[scores={firstjoin=0}] run scoreboard players add @s leaveGame 1
 execute as @a[scores={firstjoin=0}] run title @s title [{"text":"Borderline","color":"white","bold":true}]
 execute as @a[scores={firstjoin=0}] run title @s subtitle [{"text":"A game by ","color":"gold"},{"text":"YZEROgame","color":"#00DB19"},{"text":" and ","color":"gold"},{"text":"Evtema3","color":"red"}]
@@ -69,11 +68,11 @@ tag @a[gamemode=!spectator,team=Player,tag=wall,predicate=custom:abovewall] add 
 execute as @a[gamemode=!spectator,team=Player,tag=wall,predicate=!custom:abovewall] at @s run function game:getoutofwall
 tag @a[gamemode=!spectator,team=Player,tag=wall] remove wall
 
-tag @a[team=Player,scores={Lives=1..},tag=dead] add LastStanding
 effect clear @a[tag=dead]
 tag @a[tag=dead] remove SmokeBombed
 execute as @a[team=Player,tag=dead] run gamemode spectator @s
-execute as @a[team=Player,tag=dead] run tp @s 8 20 8
+execute as @a[team=Player,tag=dead] run tp @s @s
+execute as @a[team=Player,tag=dead] at @e[type=marker,tag=selected] run tp @s ~ ~5 ~
 execute as @a[team=Player,tag=dead,scores={Lives=..0}] run tag @s remove dead
 execute as @a[team=Spectator,tag=dead] run tp @s 8 20 8
 execute as @a[team=Lobby,tag=dead] run tp @s 8 5 8
@@ -109,17 +108,19 @@ execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s Lives
 execute as @a[scores={leaveGame=1..,firstjoin=1..}] run title @s clear
 scoreboard players reset @a leaveGame
 execute unless score $gamestate CmdData matches 2 run function lobby:main
-tag @a[team=!Player] remove LastStanding
+tag @a[team=!Player] remove MostRounds
 
 #> End conditions
 #No more players with lives
-execute if entity @a[team=Player,scores={Lives=1..}] run tag @a[tag=LastStanding] remove LastStanding
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 as @a[team=Player] run scoreboard players operation @s CmdData = @s Rounds
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:poggercalculation
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run tag @a[scores={CmdData=0}] add MostRounds
 execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a ["",{"text":"\n=========== ","color":"dark_gray"},{"text":"Borderline","bold":true,"color":"white"},{"text":" ===========","color":"dark_gray"},"\n",{"text":"Game Over!","color":"red"},"\n",{"text":"Round reached: ","color":"dark_aqua"},{"score":{"name":"$TotalRounds","objective":"Rounds"},"bold":true,"color":"gold"}]
-execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 if entity @a[tag=LastStanding] run tellraw @a ["",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=LastStanding]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@a[tag=LastStanding,limit=1,sort=random]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"}]
+execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 if entity @a[tag=MostRounds] run tellraw @a ["",{"text":"Most rounds survived: ","color":"dark_aqua"},{"selector":"@a[tag=MostRounds]","bold":true,"color":"gold"},{"text":" (","color":"dark_aqua"},{"score":{"name":"@a[tag=MostRounds,limit=1,sort=random]","objective":"Rounds"},"bold":true,"color":"gold"},{"text":")","color":"dark_aqua"}]
 execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run tellraw @a [""]
 execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.8
 execute unless entity @a[team=Player,scores={Lives=1..}] if score $gamestate CmdData matches 2 run function game:stop
-execute unless entity @a[team=Player,scores={Lives=1..}] if entity @e[tag=GameID,type=marker] run function game:stop
+execute unless entity @a[team=Player,scores={Lives=1..}] if entity @e[type=marker,tag=GameID] run function game:stop
 #Only one tile left
 execute if score $gamestate CmdData matches 2 store result score $tiles CmdData if entity @e[type=marker,tag=square,tag=!fallen]
 execute if score $gamestate CmdData matches 2 if score $tiles CmdData matches ..1 run function game:stop

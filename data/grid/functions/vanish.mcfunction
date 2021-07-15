@@ -6,4 +6,4 @@ execute as @e[type=marker,tag=selected,limit=1,tag=portal] at @s run function po
 execute as @e[type=falling_block,nbt={BlockState:{Name:"minecraft:red_concrete_powder"}}] at @s run function grid:sandreplace
 worldborder add 0.00001 1000000
 scoreboard players set $state CmdData 1
-item replace entity @e[tag=tnt,type=armor_stand] armor.head with air
+item replace entity @e[type=armor_stand,tag=tnt] armor.head with air

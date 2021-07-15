@@ -17,16 +17,13 @@ scoreboard objectives add hasarrow dummy
 scoreboard objectives add hastippedarrow dummy
 scoreboard objectives add firstjoin dummy
 scoreboard objectives add gridcolor dummy
+scoreboard objectives add lifts dummy
 
 #> Teams
 #Player team
 team add Player
 team modify Player color white
 team modify White seeFriendlyInvisibles false
-#Remove black/white/border teams
-team remove Black
-team remove White
-team remove Border
 #Lobby team
 team add Lobby
 team modify Lobby color gold

@@ -182,6 +182,10 @@
                     "name": "minecraft:respawn_anchor",
                     "functions": [
                         {
+                            "function": "minecraft:set_count",
+                            "count": 2
+                        },
+                        {
                             "function": "minecraft:set_nbt",
                             "tag": "{BlockStateTag:{charges:\"4\"},Enchantments:[{id:\"minecraft:unbreaking\",lvl:1}],HideFlags:7,Droppable:1b}"
                         },

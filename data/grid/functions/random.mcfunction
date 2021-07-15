@@ -8,4 +8,4 @@ function grid:reset
 function powerup:spawn
 execute as @a at @s run playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 0
 execute as @e[type=marker,tag=selected,limit=1] at @s run worldborder center ~ ~
-item replace entity @e[tag=tnt,type=armor_stand] armor.head with tnt
+item replace entity @e[type=armor_stand,tag=tnt] armor.head with tnt
