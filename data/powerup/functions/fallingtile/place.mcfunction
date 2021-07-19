@@ -6,6 +6,5 @@ execute as @e[type=marker,tag=current,tag=0,tag=!selected,tag=falling,tag=!falle
 execute as @e[type=marker,tag=current,tag=1,tag=!selected,tag=falling,tag=!fallen] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 black_concrete_powder
 execute as @e[type=marker,tag=current,tag=selected,limit=1,tag=falling,tag=!fallen] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 red_concrete_powder
 tag @e[type=marker,tag=current] remove current
-execute as @e[type=marker,tag=portal] at @s run function powerup:portaltile/setanchor
 function powerup:deduct
 execute if entity @s[scores={CmdData=1..}] at @s run function powerup:fallingtile/place
