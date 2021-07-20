@@ -42,6 +42,7 @@ execute as @e[type=zoglin,tag=!teleported] at @s if block ~ ~-1 ~ respawn_anchor
 execute as @e[type=zoglin,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anchor run tag @s remove teleported
 execute as @e[type=marker,tag=portal,tag=!fallen,tag=!portalfalling] at @s run function powerup:portaltile/setanchor
 execute as @e[type=marker,tag=portalfalling] at @s positioned ~ ~-2 ~ if entity @e[type=falling_block,distance=..2] at @s run function powerup:portaltile/sand
+
 #> Extra Life
 execute as @a[nbt={Inventory:[{id:"minecraft:totem_of_undying"}]}] at @s run function powerup:extralife/pickup
 
