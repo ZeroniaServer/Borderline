@@ -99,7 +99,7 @@ execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run 
 execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run gamemode adventure @s
 execute if score $gamestate CmdData matches 2 as @a[scores={leaveGame=1..}] run team join Spectator
 execute if score $gamestate CmdData matches 2 as @a[scores={leaveGame=1..}] run gamemode spectator @s
-execute if score $gamestate CmdData matches 2 run tellraw @a[scores={leaveGame=1..}]  {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
+execute if score $gamestate CmdData matches 2 run tellraw @a[scores={leaveGame=1..}] {"text":"There is currently a game ongoing. Please wait for this game to end.","color":"blue"}
 execute as @a[scores={leaveGame=1..}] run clear @s
 tag @a[scores={leaveGame=1..}] remove JoinPlay
 execute as @a[scores={leaveGame=1..}] run tp @s 8 5 8 -90 0
