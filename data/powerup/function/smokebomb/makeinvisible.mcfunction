@@ -1,0 +1,6 @@
+# arguments: random_asset_id_1, random_asset_id_2
+
+$item modify entity @s armor.feet [{function:"minecraft:set_components",components:{"minecraft:equippable":{equip_sound:"minecraft:intentionally_empty",asset_id:"borderline:invisible/$(random_asset_id_1)$(random_asset_id_2)",slot:"feet"}}},{function:"minecraft:set_custom_data",tag:{invisible:true}}]
+$item modify entity @s armor.legs [{function:"minecraft:set_components",components:{"minecraft:equippable":{equip_sound:"minecraft:intentionally_empty",asset_id:"borderline:invisible/$(random_asset_id_1)$(random_asset_id_2)",slot:"legs"}}},{function:"minecraft:set_custom_data",tag:{invisible:true}}]
+$item modify entity @s armor.chest [{function:"minecraft:set_components",components:{"minecraft:equippable":{equip_sound:"minecraft:intentionally_empty",asset_id:"borderline:invisible/$(random_asset_id_1)$(random_asset_id_2)",slot:"chest"}}},{function:"minecraft:set_custom_data",tag:{invisible:true}}]
+$item modify entity @s armor.head [{function:"minecraft:set_components",components:{"minecraft:equippable":{equip_sound:"minecraft:intentionally_empty",asset_id:"rocketborderlineriders:invisible/$(random_asset_id_1)$(random_asset_id_2)",slot:"head"}}},{function:"minecraft:set_custom_data",tag:{invisible:true}}]
