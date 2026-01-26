@@ -1,0 +1,1 @@
+loot give @s loot powerup:portal_tile

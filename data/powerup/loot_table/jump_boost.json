@@ -1,0 +1,33 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:rabbit_foot",
+                    "functions": [
+                        {
+                            "function": "set_components",
+                            "components": {
+                                "enchantment_glint_override": true,
+                                "custom_data": {
+                                    "Droppable": 1
+                                }
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Jump Boost",
+                                "color": "aqua",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

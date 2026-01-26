@@ -1,0 +1,40 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:respawn_anchor",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": 2
+                        },
+                        {
+                            "function": "set_components",
+                            "components": {
+                                "enchantment_glint_override": true,
+                                "custom_data": {
+                                    "Droppable": 1
+                                },
+                                "block_state": {
+                                    "charges": "4"
+                                }
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Portal Tile",
+                                "color": "blue",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

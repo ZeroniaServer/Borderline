@@ -1,0 +1,46 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:tipped_arrow",
+                    "functions": [
+                        {
+                            "function": "set_components",
+                            "components": {
+                                "potion_contents": {
+                                    "custom_color": 2039587,
+                                    "custom_effects": [
+                                        {
+                                            "id": "blindness",
+                                            "amplifier": 0,
+                                            "duration": 200,
+                                            "show_particles": true
+                                        }
+                                    ]
+                                },
+                                "potion_duration_scale": 1,
+                                "tooltip_display": {
+                                    "hidden_components": [
+                                        "potion_contents"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Blindness Arrow",
+                                "color": "gray",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

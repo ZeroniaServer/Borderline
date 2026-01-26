@@ -1,0 +1,53 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:ender_pearl"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:slap_fish"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:exploding_tile"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:falling_tile"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:lifting_tile"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:extra_life"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:jump_boost"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:smoke_bomb"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:beast"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:portal_tile"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:blindness_arrow"
+                }
+            ]
+        }
+    ]
+}

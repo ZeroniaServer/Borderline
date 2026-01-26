@@ -1,0 +1,1 @@
+fill -9 3 25 26 13 -10 light[level=15] replace air

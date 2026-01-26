@@ -1,0 +1,25 @@
+kill @e[type=area_effect_cloud,tag=Joinpad]
+kill @e[type=armor_stand,tag=Credits]
+setblock 10 5 8 minecraft:oak_wall_sign[facing=west]{front_text:{has_glowing_text:true,messages:["",{text:"Borderline",bold:true},{text:"v1.1.2",italic:true},""]}}
+
+summon armor_stand 11 7 6 {Tags:["Credits","YZEROcredit"],Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,CustomName:{text:"YZEROgame",color:"green"},CustomNameVisible:1b,Pose:{LeftLeg:[327f,0f,0f],RightLeg:[35f,0f,0f],LeftArm:[5f,0f,0f],RightArm:[285f,50f,0f]}}
+summon armor_stand 11 7 10 {Tags:["Credits","Evcredit"],Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,CustomName:{text:"Evtema3",color:"red"},CustomNameVisible:1b,Pose:{Head:[0f,0f,348f],RightLeg:[14f,0f,0f],LeftArm:[265f,54f,0f],RightArm:[270f,0f,0f]},Rotation:[-180.0f,0.0f]}
+
+item replace entity @e[type=armor_stand,tag=Evcredit,limit=1] armor.chest with leather_chestplate[dyed_color=16777215,enchantments={binding_curse:1},enchantment_glint_override=false]
+item replace entity @e[type=armor_stand,tag=Evcredit,limit=1] armor.legs with leather_leggings[dyed_color=16777215,enchantments={binding_curse:1},enchantment_glint_override=false]
+item replace entity @e[type=armor_stand,tag=Evcredit,limit=1] armor.feet with leather_boots[dyed_color=0,enchantments={binding_curse:1},enchantment_glint_override=false]
+
+item replace entity @e[type=armor_stand,tag=YZEROcredit,limit=1] armor.chest with leather_chestplate[dyed_color=0,enchantments={binding_curse:1},enchantment_glint_override=false]
+item replace entity @e[type=armor_stand,tag=YZEROcredit,limit=1] armor.legs with leather_leggings[dyed_color=0,enchantments={binding_curse:1},enchantment_glint_override=false]
+item replace entity @e[type=armor_stand,tag=YZEROcredit,limit=1] armor.feet with leather_boots[dyed_color=16777215,enchantments={binding_curse:1},enchantment_glint_override=false]
+
+item replace entity @e[type=armor_stand,tag=YZEROcredit,limit=1] weapon.mainhand with cod
+item replace entity @e[type=armor_stand,tag=Evcredit,limit=1] weapon.mainhand with bow
+item replace entity @e[type=armor_stand,tag=YZEROcredit,limit=1] armor.head with player_head[profile="YZEROgame"]
+item replace entity @e[type=armor_stand,tag=Evcredit,limit=1] armor.head with player_head[profile="Evtema3"]
+
+data modify entity @e[type=armor_stand,tag=YZEROcredit,limit=1] DisabledSlots set value 4144959
+data modify entity @e[type=armor_stand,tag=Evcredit,limit=1] DisabledSlots set value 4144959
+
+summon area_effect_cloud 13 4 6 {Duration:2000000000,Tags:["JoinpadPlay","Joinpad"],CustomName:"Join",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
+summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"Leave/Spectate",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}

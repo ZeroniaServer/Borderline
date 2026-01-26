@@ -1,0 +1,1 @@
+loot give @s loot powerup:exploding_tile

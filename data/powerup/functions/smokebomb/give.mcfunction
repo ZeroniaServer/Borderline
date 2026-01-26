@@ -1,1 +1,0 @@
-give @s popped_chorus_fruit{Enchantments:[{id:"minecraft:unbreaking",lvl:1}],HideFlags:7,Droppable:1b,display:{Name:'{"bold":true,"italic":false,"color":"dark_purple","text":"Smoke Bomb"}'}}
