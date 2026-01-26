@@ -24,7 +24,7 @@ execute if score $state CmdData matches 1 run bossbar set gridtimer color green
 execute store result bossbar gridtimer value run scoreboard players get $timer Timer
 
 #> Flashing concrete stuff
-execute as @e[type=marker,tag=vanished] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 air
+execute as @e[type=marker,tag=square,tag=vanished] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 air strict
 
 execute if score $state CmdData matches 0 if score $timer Timer matches 1.. run scoreboard players remove $timer Timer 1
 execute if score $state CmdData matches 1 if score $timer Timer matches ..99 run scoreboard players add $timer Timer 1

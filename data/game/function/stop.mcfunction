@@ -3,9 +3,9 @@
 schedule clear grid:random
 schedule clear grid:vanish
 tag @e[type=marker,tag=square] remove selected
-execute as @e[type=marker,tag=square,tag=lifted] at @s run fill ~-2 ~-1 ~-2 ~2 ~ ~2 air
+execute as @e[type=marker,tag=square,tag=lifted] at @s run fill ~-2 ~-1 ~-2 ~2 ~ ~2 air strict
 execute as @e[type=marker,tag=square] at @s run tp @s ~ 3 ~
-execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air
+execute as @e[type=marker,tag=falling] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 air strict
 tag @e[type=marker,tag=falling] remove falling
 tag @e[type=marker,tag=fallen] remove fallen
 scoreboard players reset @e[type=marker,tag=lifted] lifts
