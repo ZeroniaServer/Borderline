@@ -94,6 +94,9 @@ effect give @a saturation infinite 255 true
 effect give @a resistance infinite 255 true
 effect give @a night_vision infinite 255 true
 function game:nodrop
+execute as @a[scores={leaveGame=1..}] run tag @s add leaver
+execute as @a[scores={leaveGame=1..}] unless entity @a[tag=!leaver] run function game:stop
+execute as @a[scores={leaveGame=1..}] run tag @s remove leaver
 execute as @a[scores={leaveGame=1..}] run scoreboard players reset @s GameID
 execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run team join Lobby
 execute if score $gamestate CmdData matches 0 as @a[scores={leaveGame=1..}] run gamemode adventure @s
