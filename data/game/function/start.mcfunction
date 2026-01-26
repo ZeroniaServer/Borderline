@@ -7,7 +7,7 @@ tag @s add JoinPlay
 bossbar remove countdown
 kill @e[type=area_effect_cloud,tag=Joinpad]
 kill @e[type=armor_stand,tag=Credits]
-setblock 10 5 8 air
+setblock 10 5 8 air strict
 
 #> Player setup
 gamemode adventure @a
