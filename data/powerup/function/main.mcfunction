@@ -57,7 +57,7 @@ execute as @a if items entity @s weapon.mainhand ice run tag @s add PressDrop
 execute as @a if items entity @s weapon.offhand ice unless items entity @s weapon.mainhand * run tag @s add PressDrop
 execute as @e[type=item,predicate=custom:onground] if items entity @s contents ice if data entity @s Thrower at @s run function powerup:icetile/place
 execute as @e[type=marker,tag=icecheck,tag=!vanished] run scoreboard players add @s icecheck 0
-execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s positioned ~ ~1 ~ if entity @a[distance=..1] run scoreboard players add @s icecheck 1
+execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s positioned ~ ~1 ~ if entity @a[distance=..1] run scoreboard players add @s[scores={icecheck=..60}] icecheck 1
 execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s run function powerup:icetile/setice
 
 #> Extra Life
