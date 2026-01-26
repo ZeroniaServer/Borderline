@@ -1,5 +1,6 @@
-tag @e[type=marker,tag=square,limit=1,sort=nearest,distance=..5] add current 
+tag @e[type=marker,tag=square,limit=1,sort=nearest,distance=..5] add current
 tag @e[type=marker,tag=current,tag=!fallen,tag=!falling] add falling
+execute as @e[type=marker,tag=current,tag=ice] run function powerup:icetile/remove
 execute as @e[type=marker,tag=current,tag=falling,tag=!fallen] at @s run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 0.5 0.8
 execute as @e[type=marker,tag=current,tag=falling,tag=!fallen] at @s run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 moving_piston
 execute as @e[type=marker,tag=current,tag=0,tag=!selected,tag=falling,tag=!fallen] at @s run fill ~-2 ~ ~-2 ~2 ~ ~2 white_concrete_powder

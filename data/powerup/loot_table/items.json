@@ -46,6 +46,10 @@
                 {
                     "type": "minecraft:loot_table",
                     "value": "powerup:blindness_arrow"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:ice_tile"
                 }
             ]
         }

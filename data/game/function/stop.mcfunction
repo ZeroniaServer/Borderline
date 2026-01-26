@@ -14,6 +14,7 @@ scoreboard players reset @e[type=marker,tag=exploding] blast
 tag @e[type=marker,tag=exploding] remove exploding
 scoreboard players reset @e[type=marker,tag=portal] portaluse
 tag @e[type=marker,tag=portal] remove portal
+tag @e[type=marker,tag=ice] remove ice
 function grid:reset
 
 #> Kill entities
@@ -21,6 +22,7 @@ kill @e[type=block_display,tag=tnt]
 kill @e[type=arrow]
 kill @e[type=ender_pearl]
 kill @e[type=marker,tag=pearltracker]
+kill @e[type=marker,tag=icecheck]
 tp @e[type=zoglin] 0 -100 0
 execute as @e[type=zoglin] run data merge entity @s {DeathTime:19s}
 kill @e[type=zoglin]

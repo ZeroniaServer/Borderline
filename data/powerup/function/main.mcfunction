@@ -51,6 +51,15 @@ execute as @e[type=zoglin,tag=teleported] at @s unless block ~ ~-1 ~ respawn_anc
 execute as @e[type=marker,tag=portal,tag=!fallen,tag=!portalfalling] at @s run function powerup:portaltile/setanchor
 execute as @e[type=marker,tag=portalfalling] at @s positioned ~ ~-2 ~ if entity @e[type=falling_block,distance=..2] at @s run function powerup:portaltile/sand
 
+#> Ice Tile
+#TODO: make right clickable?
+execute as @a if items entity @s weapon.mainhand ice run tag @s add PressDrop
+execute as @a if items entity @s weapon.offhand ice unless items entity @s weapon.mainhand * run tag @s add PressDrop
+execute as @e[type=item,predicate=custom:onground] if items entity @s contents ice if data entity @s Thrower at @s run function powerup:icetile/place
+execute as @e[type=marker,tag=icecheck,tag=!vanished] run scoreboard players add @s icecheck 0
+execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s positioned ~ ~1 ~ if entity @a[distance=..1] run scoreboard players add @s icecheck 1
+execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s run function powerup:icetile/setice
+
 #> Extra Life
 # container.* is safe to use because you can't pick it up in any of the other slots
 #TODO: handle with inventory_changed advancement instead for more immediate feedback

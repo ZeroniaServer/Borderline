@@ -18,6 +18,7 @@ scoreboard objectives add hastippedarrow dummy
 scoreboard objectives add firstjoin dummy
 scoreboard objectives add gridcolor dummy
 scoreboard objectives add lifts dummy
+scoreboard objectives add icecheck dummy
 
 #> Teams
 #Player team
@@ -44,6 +45,7 @@ gamerule spawn_wardens false
 gamerule mob_drops false
 gamerule fall_damage false
 gamerule send_command_feedback false
+gamerule random_tick_speed 0
 
 #> Extra
 execute positioned 8 3 8 run tag @e[type=marker,tag=square,limit=1,sort=nearest] add center
