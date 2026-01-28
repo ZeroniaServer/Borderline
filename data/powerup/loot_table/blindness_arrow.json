@@ -33,7 +33,7 @@
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Blindness Arrow",
-                                "color": "#53535a",
+                                "color": "#4c4c64",
                                 "bold": true,
                                 "italic": false
                             }

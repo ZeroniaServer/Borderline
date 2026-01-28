@@ -26,6 +26,9 @@
                         {
                             "function": "minecraft:set_components",
                             "components": {
+                                "custom_data": {
+                                    "weak": false
+                                },
                                 "item_model": "cod",
                                 "attack_range": {
                                     "min_reach": 0,

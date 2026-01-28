@@ -1,0 +1,1 @@
+loot give @s loot powerup:poison_arrow

@@ -1,0 +1,13 @@
+{
+    "function": "minecraft:set_components",
+    "components": {
+        "minecraft:custom_data": {
+            "weak": false
+        },
+        "piercing_weapon": {
+            "hit_sound": "minecraft:entity.guardian.flop",
+            "deals_knockback": true,
+            "sound": "minecraft:entity.guardian.flop"
+        }
+    }
+}

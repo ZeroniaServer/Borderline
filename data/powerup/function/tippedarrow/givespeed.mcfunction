@@ -1,0 +1,1 @@
+loot give @s loot powerup:speed_arrow

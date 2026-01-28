@@ -49,6 +49,18 @@
                 },
                 {
                     "type": "minecraft:loot_table",
+                    "value": "powerup:speed_arrow"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:weakness_arrow"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "value": "powerup:poison_arrow"
+                },
+                {
+                    "type": "minecraft:loot_table",
                     "value": "powerup:ice_tile"
                 }
             ]
