@@ -10,7 +10,7 @@ execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=Joinpa
 execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run effect clear @s glowing
 execute as @a[tag=JoinPlay] at @s if entity @e[type=area_effect_cloud,tag=JoinpadSpec,distance=..1.5] run tag @s remove JoinPlay
 
-effect give @a[tag=JoinPlay] glowing 2 0 true
+effect give @a[tag=JoinPlay] glowing infinite 0 true
 
 scoreboard players reset $Joined CmdData
 execute as @a[tag=JoinPlay] run scoreboard players add $Joined CmdData 1
