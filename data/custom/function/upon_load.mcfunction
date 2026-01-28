@@ -49,4 +49,5 @@ gamerule random_tick_speed 0
 
 #> Extra
 execute positioned 8 3 8 run tag @e[type=marker,tag=square,limit=1,sort=nearest] add center
+execute unless score $lit CmdData matches 1 run function lobby:light
 time set 12725
