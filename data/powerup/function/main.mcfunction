@@ -75,3 +75,6 @@ execute as @a[tag=PressClick] run title @s actionbar ["",{text:"Press ",color:"r
 execute as @a[tag=!PressDrop,tag=!PressClick] run title @s actionbar [""]
 tag @a[tag=PressDrop] remove PressDrop
 tag @a[tag=PressClick] remove PressClick
+
+#> Item removal
+execute as @a[team=Player] at @s run function powerup:crafting/check

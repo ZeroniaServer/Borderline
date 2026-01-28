@@ -50,8 +50,8 @@ tag @e[type=marker,tag=center] add old
 function grid:random
 
 #> Gear
-item replace entity @a[team=Player] hotbar.0 with bow[unbreakable={},custom_name={text:"Slap Shot",italic:false,bold:true,color:"gold"},lore=[{text:"Arrows recharge over time",italic:false,color:"gray"}],enchantments={punch:2},tooltip_display={hidden_components:["unbreakable"]}]
-give @a[team=Player] arrow[custom_name={text:"Arrow",italic:false,color:"gold",bold:true}] 1
+item replace entity @a[team=Player] hotbar.0 with bow[unbreakable={},custom_name={text:"Slap Shot",italic:false,bold:true,color:"gold"},lore=[{text:"Arrows recharge over time",italic:false,color:"gray"}],enchantments={punch:2},tooltip_display={hidden_components:["unbreakable"]},custom_data={main_item:true}]
+give @a[team=Player] arrow[custom_name={text:"Arrow",italic:false,color:"gold",bold:true},custom_data={main_item:true}] 1
 execute as @a[team=Player] run function game:lifeboots
 
 #> Change gamestate

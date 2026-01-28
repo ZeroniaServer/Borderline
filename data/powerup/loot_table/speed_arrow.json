@@ -1,0 +1,46 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:tipped_arrow",
+                    "functions": [
+                        {
+                            "function": "set_components",
+                            "components": {
+                                "potion_contents": {
+                                    "custom_color": 3402751,
+                                    "custom_effects": [
+                                        {
+                                            "id": "speed",
+                                            "amplifier": 0,
+                                            "duration": 200,
+                                            "show_particles": true
+                                        }
+                                    ]
+                                },
+                                "potion_duration_scale": 1,
+                                "tooltip_display": {
+                                    "hidden_components": [
+                                        "potion_contents"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "text": "Speed Arrow",
+                                "color": "#33EBFF",
+                                "bold": true,
+                                "italic": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

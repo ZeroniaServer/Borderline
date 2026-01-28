@@ -1,0 +1,4 @@
+[
+  {"condition":"minecraft:entity_properties","entity":"this","predicate":{"slots":{"player.crafting.2":{"count":{"min":1}}}}},
+  {"condition":"minecraft:inverted","term":{"condition":"minecraft:entity_properties","entity":"this","predicate":{"slots":{"player.crafting.2":{"predicates":{"minecraft:custom_data":{"main_item":true}}}}}}}
+]

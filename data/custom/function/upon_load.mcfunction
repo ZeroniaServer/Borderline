@@ -18,6 +18,8 @@ scoreboard objectives add firstjoin dummy
 scoreboard objectives add gridcolor dummy
 scoreboard objectives add lifts dummy
 scoreboard objectives add icecheck dummy
+scoreboard objectives add var dummy
+scoreboard objectives remove DealtDamage
 
 #> Teams
 #Player team
