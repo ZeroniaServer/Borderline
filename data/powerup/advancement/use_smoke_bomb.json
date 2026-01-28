@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+                "item": {
+                    "items": "minecraft:popped_chorus_fruit"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "powerup:smokebomb/use"
+    }
+}

@@ -5,7 +5,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:rotten_flesh",
+                    "name": "minecraft:zoglin_spawn_egg",
                     "functions": [
                         {
                             "function": "set_components",

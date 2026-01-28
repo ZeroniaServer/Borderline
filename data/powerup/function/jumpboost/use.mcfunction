@@ -1,5 +1,3 @@
-execute store result score $temp playerUUID run data get entity @s Thrower[0]
-execute as @a[team=Player] if score @s playerUUID = $temp playerUUID run effect give @s jump_boost 10 1 true
-scoreboard players reset $temp playerUUID
+advancement revoke @s only powerup:use_jump_boost
+effect give @s jump_boost 10 1 true
 playsound minecraft:block.sand.hit master @a ~ ~ ~ 1 0.6
-kill @s
