@@ -33,7 +33,7 @@
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Speed Arrow",
-                                "color": "#33EBFF",
+                                "color": "#37d7e9",
                                 "bold": true,
                                 "italic": false
                             }

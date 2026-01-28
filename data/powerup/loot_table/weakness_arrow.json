@@ -33,7 +33,7 @@
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Weakness Arrow",
-                                "color": "#4e5e4e",
+                                "color": "#3f3f61",
                                 "bold": true,
                                 "italic": false
                             }
