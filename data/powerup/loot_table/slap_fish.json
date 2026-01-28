@@ -5,12 +5,12 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:cod",
+                    "name": "minecraft:copper_spear",
                     "functions": [
                         {
                             "function": "minecraft:set_enchantments",
                             "enchantments": {
-                                "minecraft:knockback": 3
+                                "minecraft:knockback": 5
                             }
                         },
                         {
@@ -21,6 +21,24 @@
                                 "color": "dark_aqua",
                                 "bold": true,
                                 "italic": false
+                            }
+                        },
+                        {
+                            "function": "minecraft:set_components",
+                            "components": {
+                                "item_model": "cod",
+                                "attack_range": {
+                                    "min_reach": 0,
+                                    "max_reach": 3
+                                },
+                                "!kinetic_weapon": {},
+                                "piercing_weapon": {
+                                    "hit_sound": "minecraft:entity.guardian.flop",
+                                    "deals_knockback": true,
+                                    "sound": "minecraft:entity.guardian.flop"
+                                },
+                                "max_damage": 1,
+                                "!break_sound": {}
                             }
                         }
                     ]

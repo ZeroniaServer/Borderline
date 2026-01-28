@@ -24,6 +24,7 @@ execute as @a run tp @s @s
 tp @a 8 5 8 -90 0
 scoreboard players reset @a armorcolor
 scoreboard players reset @a gridcolor
+team modify Player friendlyFire true
 
 #> Create game ID
 summon marker ~ ~ ~ {Tags:["GameID"]}

@@ -5,13 +5,6 @@ execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime
 execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players remove $maxptime Timer 7
 execute if score $state CmdData matches 0 if score $powertime Timer >= $maxptime Timer run scoreboard players reset $powertime Timer
 
-#> Slap Fish
-tag @a remove HoldingSlapFish
-execute as @a if items entity @s weapon.mainhand cod run tag @s add HoldingSlapFish
-execute as @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] at @s run playsound minecraft:entity.guardian.flop master @a ~ ~ ~ 1 1
-clear @a[tag=HoldingSlapFish,scores={DealtDamage=0..}] cod 1
-scoreboard players reset @a DealtDamage
-
 #> Exploding Tile
 execute as @a if items entity @s weapon.mainhand tnt run tag @s add PressDrop
 execute as @a if items entity @s weapon.offhand tnt unless items entity @s weapon.mainhand * run tag @s add PressDrop
