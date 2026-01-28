@@ -23,11 +23,10 @@ kill @e[type=arrow]
 kill @e[type=ender_pearl]
 kill @e[type=marker,tag=pearltracker]
 kill @e[type=marker,tag=icecheck]
-tp @e[type=zoglin] 0 -100 0
-execute as @e[type=zoglin] run data merge entity @s {DeathTime:19s}
-kill @e[type=zoglin]
+execute as @e[type=zoglin] run function custom:kill
 kill @e[type=falling_block]
 kill @e[type=item]
+kill @e[type=interaction,tag=anchorblocker]
 
 #> Reset world border and game states
 worldborder center 8 8
