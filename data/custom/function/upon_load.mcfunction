@@ -46,6 +46,8 @@ gamerule mob_drops false
 gamerule fall_damage false
 gamerule send_command_feedback false
 gamerule random_tick_speed 0
+gamerule locator_bar false
+gamerule log_admin_commands false
 
 #> Extra
 execute positioned 8 3 8 run tag @e[type=marker,tag=square,limit=1,sort=nearest] add center
