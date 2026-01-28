@@ -22,4 +22,37 @@ data modify entity @e[type=armor_stand,tag=YZEROcredit,limit=1] DisabledSlots se
 data modify entity @e[type=armor_stand,tag=Evcredit,limit=1] DisabledSlots set value 4144959
 
 summon area_effect_cloud 13 4 6 {Duration:2000000000,Tags:["JoinpadPlay","Joinpad"],CustomName:"Join",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
-summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"Leave/Spectate",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
+summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"LeaveSpectate",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
+
+# Zorrpann statue
+setblock 17 4 7 minecraft:deepslate_brick_wall[north=none,waterlogged=false,south=low,east=none,up=true,west=none] strict
+setblock 17 4 8 minecraft:deepslate_brick_wall[north=low,waterlogged=false,south=low,east=low,up=true,west=none] strict
+setblock 17 4 9 minecraft:deepslate_brick_wall[north=low,waterlogged=false,south=none,east=none,up=true,west=none] strict
+setblock 18 4 7 minecraft:polished_deepslate_slab[type=bottom,waterlogged=false] strict
+setblock 19 4 7 minecraft:deepslate_brick_wall[north=none,waterlogged=false,south=tall,east=none,up=true,west=none] strict
+setblock 19 4 8 minecraft:deepslate_brick_wall[north=tall,waterlogged=false,south=tall,east=none,up=true,west=low] strict
+setblock 19 4 9 minecraft:deepslate_brick_wall[north=tall,waterlogged=false,south=none,east=none,up=true,west=none] strict
+setblock 18 4 9 minecraft:polished_deepslate_slab[type=bottom,waterlogged=false] strict
+setblock 18 4 8 minecraft:reinforced_deepslate strict
+setblock 18 5 8 minecraft:red_carpet strict
+setblock 17 5 7 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=false] strict
+setblock 17 5 9 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=false] strict
+setblock 18 5 9 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=true] strict
+setblock 18 5 7 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=true] strict
+setblock 19 5 7 minecraft:red_stained_glass_pane[waterlogged=false,south=true,east=false,north=false,west=true] strict
+setblock 19 5 9 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=false,north=true,west=true] strict
+setblock 19 5 8 minecraft:red_stained_glass_pane[waterlogged=false,south=true,east=false,north=true,west=false] strict
+setblock 19 6 8 minecraft:red_stained_glass_pane[waterlogged=false,south=true,east=false,north=true,west=false] strict
+setblock 19 6 7 minecraft:red_stained_glass_pane[waterlogged=false,south=true,east=false,north=false,west=true] strict
+setblock 19 6 9 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=false,north=true,west=true] strict
+setblock 18 6 9 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=false] strict
+setblock 18 6 7 minecraft:red_stained_glass_pane[waterlogged=false,south=false,east=true,north=false,west=false] strict
+setblock 17 6 7 minecraft:end_rod[facing=up] strict
+setblock 17 6 9 minecraft:end_rod[facing=up] strict
+
+kill @e[type=text_display,tag=statue]
+kill @e[type=item_display,tag=statue]
+execute as @e[type=mannequin,tag=statue] run function custom:kill
+summon text_display 17 7.25 8 {Tags:["statue"],text:[{text:"Zorrpann",color:"white",shadow_color:[0.2,0.2,0.2,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2.25f,2.25f,2.25f]}}
+summon text_display 17 7 8 {Tags:["statue"],text:[{text:"First to 1000 Rounds",color:"yellow",shadow_color:[0.5,0.5,0,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0}
+execute positioned 18 5 8 align xyz positioned ~0.5 ~ ~0.5 run summon item_display ~ ~ ~ {Tags:["statue"],Passengers:[{id:"minecraft:mannequin",Tags:["statue"],profile:"Zorrpann",NoGravity:1b,Rotation:[90.0,0.0]}]}

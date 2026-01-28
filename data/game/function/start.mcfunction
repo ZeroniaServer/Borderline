@@ -7,7 +7,11 @@ tag @s add JoinPlay
 bossbar remove countdown
 kill @e[type=area_effect_cloud,tag=Joinpad]
 kill @e[type=armor_stand,tag=Credits]
-setblock 10 5 8 air strict
+kill @e[type=text_display,tag=statue]
+kill @e[type=item_display,tag=statue]
+execute as @e[type=mannequin,tag=statue] run function custom:kill
+fill 19 4 9 17 6 7 light[level=10] strict
+setblock 10 5 8 light[level=10] strict
 
 #> Player setup
 gamemode adventure @a
