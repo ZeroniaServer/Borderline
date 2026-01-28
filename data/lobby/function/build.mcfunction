@@ -1,6 +1,6 @@
 kill @e[type=area_effect_cloud,tag=Joinpad]
 kill @e[type=armor_stand,tag=Credits]
-setblock 10 5 8 minecraft:oak_wall_sign[facing=west]{front_text:{has_glowing_text:true,messages:["",{text:"Borderline",bold:true},{text:"v1.1.3",italic:true},""]}}
+setblock 10 5 8 minecraft:oak_wall_sign[facing=west]{front_text:{has_glowing_text:true,messages:["",{text:"Borderline",bold:true},{text:"v1.1.4",italic:true},""]}}
 
 summon armor_stand 11 7 6 {Tags:["Credits","YZEROcredit"],Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,CustomName:{text:"YZEROgame",color:"green"},CustomNameVisible:1b,Pose:{LeftLeg:[327f,0f,0f],RightLeg:[35f,0f,0f],LeftArm:[5f,0f,0f],RightArm:[285f,50f,0f]}}
 summon armor_stand 11 7 10 {Tags:["Credits","Evcredit"],Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,ShowArms:1b,CustomName:{text:"Evtema3",color:"red"},CustomNameVisible:1b,Pose:{Head:[0f,0f,348f],RightLeg:[14f,0f,0f],LeftArm:[265f,54f,0f],RightArm:[270f,0f,0f]},Rotation:[-180.0f,0.0f]}
@@ -55,4 +55,4 @@ kill @e[type=item_display,tag=statue]
 execute as @e[type=mannequin,tag=statue] run function custom:kill
 summon text_display 17 7.25 8 {Tags:["statue"],text:[{text:"Zorrpann",color:"white",shadow_color:[0.2,0.2,0.2,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2.25f,2.25f,2.25f]}}
 summon text_display 17 7 8 {Tags:["statue"],text:[{text:"First to 1000 Rounds",color:"yellow",shadow_color:[0.5,0.5,0,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0}
-execute positioned 18 5 8 align xyz positioned ~0.5 ~ ~0.5 run summon item_display ~ ~ ~ {Tags:["statue"],Passengers:[{id:"minecraft:mannequin",Tags:["statue"],profile:"Zorrpann",NoGravity:1b,Rotation:[90.0,0.0]}]}
+execute positioned 18 5 8 align xyz positioned ~0.5 ~ ~0.5 run summon item_display ~ ~ ~ {Tags:["statue"],Passengers:[{id:"minecraft:mannequin",Tags:["statue"],profile:"Zorrpann",hidden_layers:[],NoGravity:1b,Rotation:[90.0,0.0]}]}
