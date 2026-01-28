@@ -52,7 +52,8 @@ setblock 17 6 9 minecraft:end_rod[facing=up] strict
 
 kill @e[type=text_display,tag=statue]
 kill @e[type=item_display,tag=statue]
+kill @e[type=interaction,tag=statue]
 execute as @e[type=mannequin,tag=statue] run function custom:kill
 summon text_display 17 7.25 8 {Tags:["statue"],text:[{text:"Zorrpann",color:"white",shadow_color:[0.2,0.2,0.2,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2.25f,2.25f,2.25f]}}
 summon text_display 17 7 8 {Tags:["statue"],text:[{text:"First to 1000 Rounds",color:"yellow",shadow_color:[0.5,0.5,0,1],bold:true}],billboard:"fixed",Rotation:[90.0,0.0],background:0}
-execute positioned 18 5 8 align xyz positioned ~0.5 ~ ~0.5 run summon item_display ~ ~ ~ {Tags:["statue"],Passengers:[{id:"minecraft:mannequin",Tags:["statue"],profile:"Zorrpann",hidden_layers:[],NoGravity:1b,Rotation:[90.0,0.0]}]}
+execute positioned 18 5 8 align xyz positioned ~0.5 ~ ~0.5 run summon item_display ~ ~ ~ {Tags:["statue"],Passengers:[{id:"interaction",width:1.5,height:1.5,response:0b,Tags:["statue"]},{id:"minecraft:mannequin",Tags:["statue"],Invulnerable:1b,profile:"Zorrpann",NoGravity:1b,Rotation:[90.0,0.0]}]}
