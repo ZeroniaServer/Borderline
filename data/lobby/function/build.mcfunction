@@ -22,7 +22,7 @@ data modify entity @e[type=armor_stand,tag=YZEROcredit,limit=1] DisabledSlots se
 data modify entity @e[type=armor_stand,tag=Evcredit,limit=1] DisabledSlots set value 4144959
 
 summon area_effect_cloud 13 4 6 {Duration:2000000000,Tags:["JoinpadPlay","Joinpad"],CustomName:"Join",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
-summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"LeaveSpectate",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
+summon area_effect_cloud 13 4 10 {Duration:2000000000,Tags:["JoinpadSpec","Joinpad"],CustomName:"Leave/Spectate",CustomNameVisible:1b,Radius:0,custom_particle:{type:"block",block_state:"air"}}
 
 # Zorrpann statue
 setblock 17 4 7 minecraft:deepslate_brick_wall[north=none,waterlogged=false,south=low,east=none,up=true,west=none] strict
