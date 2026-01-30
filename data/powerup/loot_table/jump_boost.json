@@ -26,7 +26,7 @@
                             "function": "minecraft:set_name",
                             "name": {
                                 "text": "Jump Boost",
-                                "color": "#bdc000",
+                                "color": "#cfc100",
                                 "bold": true,
                                 "italic": false
                             }
