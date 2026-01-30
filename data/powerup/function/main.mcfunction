@@ -47,6 +47,7 @@ execute as @e[type=item,predicate=custom:onground] if items entity @s contents i
 execute as @e[type=marker,tag=icecheck,tag=!vanished] run scoreboard players add @s icecheck 0
 execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s positioned ~ ~1 ~ if entity @a[distance=..1] run scoreboard players add @s[scores={icecheck=..60}] icecheck 1
 execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s run function powerup:icetile/setice
+execute as @e[type=marker,tag=ice,tag=!fallen,tag=!vanished] at @s if blocks ~-2 ~ ~-2 ~2 ~ ~2 ~ -10 ~ all run tag @s add fallen
 
 #> Jump Boost
 execute as @a if items entity @s weapon.mainhand rabbit_foot run tag @s add PressClick
