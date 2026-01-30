@@ -64,9 +64,9 @@ execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pe
 execute as @e[type=marker,tag=pearltracker] at @s unless entity @e[type=ender_pearl,tag=tracked,distance=..2] run kill @s
 
 #> Unleash the Beast
-execute as @a if items entity @s weapon.mainhand zoglin_spawn_egg run tag @s add PressDrop
-execute as @a if items entity @s weapon.offhand zoglin_spawn_egg unless items entity @s weapon.mainhand * run tag @s add PressDrop
-execute as @e[type=item,predicate=custom:onground] if items entity @s contents zoglin_spawn_egg if data entity @s Thrower at @s run function powerup:beast/unleash
+execute as @a if items entity @s weapon.mainhand rotten_flesh run tag @s add PressDrop
+execute as @a if items entity @s weapon.offhand rotten_flesh unless items entity @s weapon.mainhand * run tag @s add PressDrop
+execute as @e[type=item,predicate=custom:onground] if items entity @s contents rotten_flesh if data entity @s Thrower at @s run function powerup:beast/unleash
 
 #> Weakness Arrow
 execute as @a[predicate=powerup:has_weakness] if items entity @s weapon.mainhand copper_spear[custom_data~{weak:false}] run item modify entity @s weapon.mainhand powerup:weaken_fish
