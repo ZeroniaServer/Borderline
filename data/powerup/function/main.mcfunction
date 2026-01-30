@@ -51,7 +51,6 @@ execute as @e[type=marker,tag=icecheck,tag=!vanished] at @s run function powerup
 #> Jump Boost
 execute as @a if items entity @s weapon.mainhand rabbit_foot run tag @s add PressClick
 execute as @a if items entity @s weapon.offhand rabbit_foot unless items entity @s weapon.mainhand * run tag @s add PressClick
-execute as @e[type=item] if items entity @s contents rabbit_foot if data entity @s Thrower at @s run function powerup:jumpboost/use
 
 #> Smoke Bomb
 execute as @a if items entity @s weapon.mainhand popped_chorus_fruit run tag @s add PressClick
